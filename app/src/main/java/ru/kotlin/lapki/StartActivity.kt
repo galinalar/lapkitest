@@ -4,32 +4,59 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_authorization.*
 import kotlinx.android.synthetic.main.activity_start.*
+import ru.kotlin.lapki.api.LoginRepository
+import ru.kotlin.lapki.api.SessionRepository
 import ru.kotlin.lapki.api.entities.UserID
 
 class StartActivity : AppCompatActivity() {
-    lateinit var session: SessionManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
-        val user = intent.getParcelableExtra<Parcelable>("user") as? UserID
-        if (user != null) {
-            println(user.id)
-            println(user.role)
-        }
-        session = SessionManager(applicationContext)
+        //val user = intent.getParcelableExtra<Parcelable>("user") as? UserID
+        //if (user != null) {
+       //     println(user.id)
+      //      println(user.role)
+      //  }
+        getsession()
+
+
         sh.setOnClickListener{
-            session.StartP("shelter")
+            //session.StartP("shelter")
             startActivity(Intent(this, Listt::class.java))
         }
         pet.setOnClickListener{
-            session.StartP("pet")
+           // session.StartP("pet")
             startActivity(Intent(this, Listt::class.java))
         }
         fpet.setOnClickListener{
 
-            session.StartP("fpet")
+           // session.StartP("fpet")
             startActivity(Intent(this, Listt::class.java))
         }
+    }
+    private fun getsession(){
+        Thread {
+            try {
+                var session = SessionManager(applicationContext)
+                val sessionResponse = SessionRepository.get(
+                        session.getSessionrDetails().toString()
+
+                )
+                if (sessionResponse.isError) throw IllegalAccessError()
+                println(session.getSessionrDetails())
+            } catch (exception: Throwable) {
+                runOnUiThread {
+                    val error = when (exception) {
+                        is IllegalAccessError -> "Что-то пошло не так"
+                        else -> "Все наебнулось2"
+                    }
+                    println(error)
+                }
+            }
+        }.start()
+
     }
 }

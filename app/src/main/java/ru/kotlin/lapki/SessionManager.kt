@@ -20,6 +20,7 @@ class SessionManager(
     companion object{
         val PREF_NAME: String = "lapki"
         val IS_LOGIN: String = "isLoggedIn"
+        val KEY_SESSION_ID:String = "0"
         val KEY_ID: String = "0"
         val KEY_ROLE: String = "1"
         val KEY_START: String = "shelter"
@@ -34,6 +35,33 @@ class SessionManager(
         val KEY_CHANGE_SHELTER: String = "5"
         val KEY_CHANGE_IDSHELTER: String = "6"
         val KEY_CHANGE_IDROLE: String = "-3"
+    }
+    fun CreateSession(id: Long){
+        editor.putBoolean(IS_LOGIN, true)
+        editor.putLong(KEY_SESSION_ID, id)
+        editor.commit()
+    }
+
+    fun checkLogin()
+    {
+        if (!this.isLoggedIn())
+        {
+            var i: Intent = Intent(context, MainActivity::class.java)
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(i)
+        }
+    }
+    fun getSessionrDetails(): String= pref.getLong(KEY_SESSION_ID,0).toString()
+
+    fun LogoutUser()
+    {
+        editor.clear()
+        editor.commit()
+        var i: Intent = Intent(context, MainActivity::class.java)
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        context.startActivity(i)
     }
     fun CreateLoginSession(id: String, role: String){
         editor.putBoolean(IS_LOGIN, true)
@@ -74,16 +102,7 @@ class SessionManager(
         editor.putString(KEY_CHANGE_IDSHELTER, ish)
         editor.commit()
     }
-    fun checkLogin()
-    {
-        if (!this.isLoggedIn())
-        {
-            var i: Intent = Intent(context, MainActivity::class.java)
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            context.startActivity(i)
-        }
-    }
+
     fun getUserDetails(): HashMap<String,String>
     {
         var user: Map<String,String> = HashMap<String,String>()
@@ -116,14 +135,6 @@ class SessionManager(
         return ch
     }
 
-    fun LogoutUser()
-    {
-        editor.clear()
-        editor.commit()
-        var i: Intent = Intent(context, MainActivity::class.java)
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        context.startActivity(i)
-    }
+
     fun isLoggedIn():Boolean=pref.getBoolean(IS_LOGIN,false)
 }

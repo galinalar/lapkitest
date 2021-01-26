@@ -6,6 +6,7 @@ import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_authorization.*
 import ru.kotlin.lapki.api.LoginRepository
+import ru.kotlin.lapki.api.SessionRepository
 
 class AuthorizationActivity : AppCompatActivity() {
 
@@ -32,17 +33,23 @@ class AuthorizationActivity : AppCompatActivity() {
                         activity_authorization_password.text.toString()
                 )
                 if (loginResponse.isError) throw IllegalAccessError()
+                val sessionResponse = SessionRepository.create(
+                        loginResponse.users.first().id.toString()
+                )
+                if (sessionResponse.isError) throw IllegalAccessError()
+                val session = SessionManager(applicationContext)
+                session.CreateSession(sessionResponse.id)
+                val s = session.getSessionrDetails()
                 runOnUiThread {
-                    startActivity(Intent(this, StartActivity::class.java).apply {
-                        putExtra("user", loginResponse.users.first() as Parcelable)
-                    })
+
+                    startActivity(Intent(this, StartActivity::class.java))
                     finish()
                 }
             } catch (exception: Throwable) {
                 runOnUiThread {
                     activity_authorization_error.text = when (exception) {
                         is IllegalAccessError -> "Неверный логин или пароль, мудила"
-                        else -> "Все наебнулось"
+                        else -> "Все наебнулось1"
                     }
                 }
             }

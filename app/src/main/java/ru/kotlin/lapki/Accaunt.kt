@@ -21,7 +21,7 @@ class Accaunt : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
         session = SessionManager(applicationContext)
-        var user = session.getUserDetails()
+                var user = session.getUserDetails()
         var id = user.get(SessionManager.KEY_ID)
         var role = user.get(SessionManager.KEY_ROLE)
         var form = FormBody.Builder().add("id", id)
