@@ -6,35 +6,35 @@ object ApiScheme {
 
     const val GET_USERS_URL = "$SERVER_URL/?op=getusers"
 
-    const val GET_USER_ACCAUNT = "$SERVER_URL/?op=users"
+    const val GET_USER_ACCAUNT_URL = "$SERVER_URL/?op=users"
 
-    const val RESTORE_PASSWORD = "$SERVER_URL/?op=getusersemail"
+    const val RESTORE_PASSWORD_URL = "$SERVER_URL/?op=getusersemail"
 
-    const val DELETE_OBJECT = "$SERVER_URL/?op=deleteobject"
+    const val DELETE_OBJECT_URL = "$SERVER_URL/?op=deleteobject"
 
-    const val CHANGE_PASSWORD = "$SERVER_URL/?op=changepass"
+    const val CHANGE_PASSWORD_URL = "$SERVER_URL/?op=changepass"
 
-    const val GET_SHELTER_LIST = "$SERVER_URL/?op=getlist"
+    const val GET_SHELTER_LIST_URL = "$SERVER_URL/?op=getlist"
 
-    const val ADD_PET = "$SERVER_URL/?op=addpet"
+    const val ADD_PET_URL = "$SERVER_URL/?op=addpet"
 
-    const val GET_PET_ROLE = "$SERVER_URL/?op=getrolep"
+    const val GET_PET_ROLE_URL = "$SERVER_URL/?op=getrolep"
 
-    const val GET_PET_ACCAUNT = "$SERVER_URL/?op=getpet"
+    const val GET_PET_ACCAUNT_URL = "$SERVER_URL/?op=getpet"
 
-    const val CHANGE_PET = "$SERVER_URL/?op=chpet"
+    const val CHANGE_PET_URL = "$SERVER_URL/?op=chpet"
 
-    const val ADD_SHELTER = "$SERVER_URL/?op=addshelter"
+    const val ADD_SHELTER_URL = "$SERVER_URL/?op=addshelter"
 
-    const val GET_SHELTER_TYPE = "$SERVER_URL/?op=gettype"
+    const val GET_SHELTER_TYPE_URL = "$SERVER_URL/?op=gettype"
 
-    const val GET_SHELTER_ROLE = "$SERVER_URL/?op=getrole"
+    const val GET_SHELTER_ROLE_URL = "$SERVER_URL/?op=getrole"
 
-    const val GET_SHELTER = "$SERVER_URL/?op=getshelter"
+    const val GET_SHELTER_URL = "$SERVER_URL/?op=getshelter"
 
-    const val CHANGE_SHELTER = "$SERVER_URL/?op=chshelter"
+    const val CHANGE_SHELTER_URL = "$SERVER_URL/?op=chshelter"
 
-    const val ADD_USER = "$SERVER_URL/?op=addusers"
+    const val ADD_USER_URL = "$SERVER_URL/?op=addusers"
 
 
 

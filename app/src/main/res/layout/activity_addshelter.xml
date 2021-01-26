@@ -192,7 +192,7 @@
                 android:layout_width="274dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/button"
-                android:text="@string/retur" />
+                android:text="@string/return_button" />
 
         </LinearLayout>
     </ScrollView>
