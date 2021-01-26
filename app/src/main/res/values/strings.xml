@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">lapki</string>
+    <string name="return_button">Вернуться</string>
+    <string name="entry_head">Вход</string>
+    <string name="login">Логин</string>
+    <string name="login_hint">Введите свой логин</string>
+    <string name="password">Пароль</string>
+    <string name="restore_password">Забыли пароль?</string>
+    <string name="entry_button">Войти</string>
+    <string name="Forget">Забыли пароль</string>
+    <string name="repeat_password">Подтверждение пароля</string>
+    <string name="email">Адрес электронной почты</string>
+    <string name="restore">Восстановить</string>
+</resources>

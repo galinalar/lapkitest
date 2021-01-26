@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".RestoreActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Forget"
+        android:textSize="40sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="273dp"
+        android:layout_height="381dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/login"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/activity_restore_login"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/login_hint"
+            android:textColorHighlight="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/password"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/activity_restore_password"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/repeat_password"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/activity_restore_repeat_password"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/email"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/activity_restore_email"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:background="@color/white"/>
+
+        <Button
+            android:id="@+id/activity_restore_restore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button"
+            android:text="@string/restore" />
+
+        <TextView
+            android:id="@+id/activity_restore_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_orange" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/activity_restore_return"
+        android:layout_width="274dp"
+        android:layout_height="wrap_content"
+        android:text="@string/return_button"
+        android:backgroundTint="@color/button"/>
+
+</LinearLayout>

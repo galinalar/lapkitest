@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".ShelterAc">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Название приюта"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Данные о приюте"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="249dp"
+        android:orientation="vertical"
+        android:background="@color/lightb"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/bd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Дата создания: "
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Город: "
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Описание: "
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Тип приюта: "
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/role"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textColor="@color/black"/>
+        <Button
+            android:id="@+id/ch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Изменить данные" />
+        <Button
+            android:id="@+id/del"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Удалить приют" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/pet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Подопечные" />
+
+    <Button
+        android:id="@+id/req"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Смотреть заявки/Заявка волонтера" />
+
+    <Button
+        android:id="@+id/ret"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Вернутся к списку" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

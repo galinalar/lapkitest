@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".AuthorizationActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="36dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/entry_head"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/login"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/activity_authorization_login"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/login_hint"
+            android:textColorHighlight="@color/black"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/password"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/activity_authorization_password"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/activity_authorization_restore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp"
+            android:backgroundTint="@color/background"
+            android:text="@string/restore_password"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white"
+            android:textColorLink="@color/white"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:rippleColor="@color/white" />
+
+        <Button
+            android:id="@+id/activity_authorization_entry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button"
+            android:text="@string/entry" />
+
+        <TextView
+            android:id="@+id/activity_authorization_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_orange" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/activity_authorization_return"
+        android:layout_width="274dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/button"
+        android:text="@string/return_button" />
+
+</LinearLayout>
