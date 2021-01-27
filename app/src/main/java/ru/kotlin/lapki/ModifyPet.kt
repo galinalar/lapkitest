@@ -13,6 +13,8 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_addpet.*
 import okhttp3.*
 import org.json.JSONObject
+import ru.kotlin.lapki.api.entities.Shelter
+import ru.kotlin.lapki.api.responses.ShelterResponse
 import java.io.IOException
 
 
@@ -79,11 +81,11 @@ println("PPPPPPP ${session.getPet()}")
                 println(json)
                 if ((JSONObject(json).get("error")).toString()=="false") {
                     var gson = Gson()
-                    val listshel = gson?.fromJson(json, Parse::class.java)
+                    val listshel = gson?.fromJson(json, ShelterResponse::class.java)
                     var str: Set<String>
                     this@ModifyPet.runOnUiThread {
                        // ty = Array(listshel.lists.size, {i->listshel.lists[i].Name})
-                        val tt = listshel.lists
+                        val tt = listshel.list
 
                                                 println(ty[0])
                         //val ad7 = ArrayAdapter(this@ModifyPet, android.R.layout.simple_spinner_item,ty)
@@ -92,7 +94,7 @@ println("PPPPPPP ${session.getPet()}")
                         val ad7 = SpinAdapter(this@ModifyPet, tt)
                         shelter.adapter = ad7
                         if (session.getMod()=="change"){
-                        var h = tt.indexOfFirst { it.IDShelter == session.getChPet().get(SessionManager.KEY_CHANGE_IDSHELTER)!!.toInt()}
+                        var h = tt.indexOfFirst { it.id_shelter == session.getChPet().get(SessionManager.KEY_CHANGE_IDSHELTER)!!.toInt()}
                         shelter.setSelection(h)}
                                 //var pet = session.getChPet()
                        // var ids = 0
@@ -275,7 +277,7 @@ println("PPPPPPP ${session.getPet()}")
         val day = spinnerS.selectedItem.toString()
         val mon = spinner2S.selectedItem.toString()
         val descr = discribe.text.toString()
-        val shel = (shelter.selectedItem as Shelter).IDShelter
+        val shel = (shelter.selectedItem as Shelter).id_shelter
         val por = poroda.text.toString()
         val rol = (role.selectedItem as Role).IDRole
         val se = sex.indexOfChild(sex.findViewById(sex.checkedRadioButtonId)).toString()
@@ -355,7 +357,7 @@ println("PPPPPPP ${session.getPet()}")
         val day = spinnerS.selectedItem.toString()
         val mon = spinner2S.selectedItem.toString()
         val descr = discribe.text.toString()
-        val shel = (shelter.selectedItem as Shelter).IDShelter
+        val shel = (shelter.selectedItem as Shelter).id_shelter
         val por = poroda.text.toString()
         val rol = (role.selectedItem as Role).IDRole
         val se = sex.indexOfChild(sex.findViewById(sex.checkedRadioButtonId)).toString()
@@ -453,13 +455,13 @@ class SpinAdapter<T : CommonSpinnerElement>(val appcontext: Context, var items :
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View =
         LayoutInflater.from(appcontext).inflate(android.R.layout.simple_spinner_item, null)
                 ?.findViewById<TextView>(android.R.id.text1)?.apply {
-            text = items[position].Name
+            text = items[position].shelter_name
         } as View
 
 }
 
 interface CommonSpinnerElement {
-    val Name: String
+    val shelter_name: String
 }
 class SpinAdapterSt<T : CommonSpinnerElementSt>(val appcontext: Context, var items : List<T>):ArrayAdapter<T>(appcontext, android.R.layout.simple_spinner_item, items){
     // val context = appcontext

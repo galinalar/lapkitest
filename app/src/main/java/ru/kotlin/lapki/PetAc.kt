@@ -24,9 +24,12 @@ class PetAc(): AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_petac)
         session = SessionManager(applicationContext)
-
-        val idpet = session.getPet()
-        var form = FormBody.Builder().add("id", idpet)
+        val petID = intent.getLongExtra("id",0)
+        if (petID != null) {
+            println(petID)
+        }
+       // val idpet = session.getPet()
+        var form = FormBody.Builder().add("id", petID.toString())
         val request: Request = Request.Builder().url(URL).post(form.build()).build()
         println(request)
         okHttpClient.newCall(request).enqueue(object : Callback {
@@ -92,8 +95,8 @@ class PetAc(): AppCompatActivity() {
             }
 
         })
-        println(idpet)
-        session.Pet(idpet)
+      //  println(idpet)
+       // session.Pet(idpet)
         del.setOnClickListener{
             session.TYPE_OBJ("pet")
             Delete.Del(applicationContext)
@@ -103,7 +106,7 @@ class PetAc(): AppCompatActivity() {
          }
         ch.setOnClickListener {
             //session.Pet(session.getPet())
-            session.CHPET(idpet, statuss.text.toString(), she.text.toString(), rolid.text.toString(), shelid.text.toString())
+         //   session.CHPET(idpet, statuss.text.toString(), she.text.toString(), rolid.text.toString(), shelid.text.toString())
             session.Mod("change")
             println(rolid.text.toString())
             //session.Shelter(shelid.text.toString())

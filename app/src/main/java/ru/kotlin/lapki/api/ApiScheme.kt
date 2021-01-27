@@ -18,7 +18,7 @@ object ApiScheme {
 
     const val CHANGE_PASSWORD_URL = "$SERVER_URL/?op=changepass"
 
-    const val GET_SHELTER_LIST_URL = "$SERVER_URL/?op=getlist"
+    const val GET_LIST_URL = "$SERVER_URL/?op=getlist"
 
     const val ADD_PET_URL = "$SERVER_URL/?op=addpet"
 

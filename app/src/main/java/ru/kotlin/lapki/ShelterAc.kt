@@ -23,9 +23,12 @@ class ShelterAc : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shelterac)
         session = SessionManager(applicationContext)
-
-        val idshel = session.getShelter()
-        var form = FormBody.Builder().add("ids", idshel)
+val shelterID = intent.getIntExtra("id",0)
+        if (shelterID != null) {
+            println(shelterID)
+         }
+       // val idshel = session.getShelter()
+        var form = FormBody.Builder().add("ids", shelterID.toString())
         val request: Request = Request.Builder().url(URL).post(form.build()).build()
         println(request)
         okHttpClient.newCall(request).enqueue(object : Callback {
@@ -59,7 +62,8 @@ class ShelterAc : AppCompatActivity() {
             })
         pet.setOnClickListener{
             session.StartP("petshelter")
-            startActivity(Intent(this, Listt::class.java))
+            session.Shelter(shelterID.toString())
+            startActivity(Intent(this, PetShelterListActivity::class.java))
         }
         ret.setOnClickListener{
             startActivity(Intent(this, RegistrationActivity::class.java))

@@ -10,7 +10,7 @@ data class Pet(
         @SerializedName("IDPet")
         val id_pet: Long,
         @SerializedName("Name")
-        val user_name: String,
+        val pet_name: String,
         @SerializedName("BirthDate")
         val birth_date: Date,
         @SerializedName("IDType")

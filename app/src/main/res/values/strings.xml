@@ -26,4 +26,6 @@
     <string name="telephone">Телефон</string>
     <string name="telephone_hint">Введите свой телефон</string>
     <string name="registr">Зарегистрироваться</string>
+    <string name="shelters">Приюты</string>
+    <string name="add">Добавить</string>
 </resources>

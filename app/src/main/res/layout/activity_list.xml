@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".Listt">
+    android:gravity="center">
 
 
     <LinearLayout
@@ -16,11 +15,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/mname"
+            android:id="@+id/activity_list_head"
             android:layout_width="291dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Приюты"
+            android:textSize="20sp"
+            android:text="@string/shelters"
             android:textColor="@color/black"/>
 
         <LinearLayout
@@ -30,22 +30,22 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/ret"
+                android:id="@+id/activity_list_return"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/return_button" />
 
             <Button
-                android:id="@+id/add"
+                android:id="@+id/activity_list_add"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="invisible"
-                android:text="Добавить" />
+                android:text="@string/add" />
         </LinearLayout>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/activity_list_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/list_item">

@@ -9,16 +9,12 @@
    >
 
     <Button
-        android:id="@+id/shel"
+        android:id="@+id/list_item_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Приюты"
+        android:text="@string/shelters"
         android:backgroundTint="@color/lightb">
 
     </Button>
-    <TextView
-    android:id="@+id/ii"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:visibility="invisible"/>
+
 </LinearLayout>

@@ -20,43 +20,43 @@ class StartActivity : AppCompatActivity() {
        //     println(user.id)
       //      println(user.role)
       //  }
-        getsession()
+
 
 
         sh.setOnClickListener{
             //session.StartP("shelter")
-            startActivity(Intent(this, Listt::class.java))
+            startActivity(Intent(this, ShelterListActivity::class.java))
         }
         pet.setOnClickListener{
            // session.StartP("pet")
-            startActivity(Intent(this, Listt::class.java))
+            startActivity(Intent(this, PetListActivity::class.java))
         }
         fpet.setOnClickListener{
 
            // session.StartP("fpet")
-            startActivity(Intent(this, Listt::class.java))
+            startActivity(Intent(this, PetLoseListActivity::class.java))
         }
     }
-    private fun getsession(){
-        Thread {
-            try {
-                var session = SessionManager(applicationContext)
-                val sessionResponse = SessionRepository.get(
-                        session.getSessionrDetails().toString()
+   // private fun getsession(){
+    //    Thread {
+     //       try {
+     //           var session = SessionManager(applicationContext)
+        //        val sessionResponse = SessionRepository.get(
+        //                session.getSessionrDetails().toString()
 
-                )
-                if (sessionResponse.isError) throw IllegalAccessError()
-                println(session.getSessionrDetails())
-            } catch (exception: Throwable) {
-                runOnUiThread {
-                    val error = when (exception) {
-                        is IllegalAccessError -> "Что-то пошло не так"
-                        else -> "Все наебнулось2"
-                    }
-                    println(error)
-                }
-            }
-        }.start()
+         //       )
+         //       if (sessionResponse.isError) throw IllegalAccessError()
+           //     println(session.getSessionrDetails())
+           // } catch (exception: Throwable) {
+          //      runOnUiThread {
+           //         val error = when (exception) {
+           //             is IllegalAccessError -> "Что-то пошло не так"
+           //             else -> "Все наебнулось2"
+           //         }
+           //         println(error)
+           //     }
+          //  }
+      //  }.start()
 
-    }
+  //  }
 }

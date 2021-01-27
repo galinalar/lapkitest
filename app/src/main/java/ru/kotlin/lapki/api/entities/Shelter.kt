@@ -9,14 +9,14 @@ import java.util.*
 @Parcelize
 data class Shelter(
         @SerializedName("IDShelter")
-        val id_shelter: String,
+        val id_shelter: Int,
         @SerializedName("Name")
-        val shelter_name: String,
+        override val shelter_name: String,
         @SerializedName("BirthDate")
         val birth_date: Date,
         @SerializedName("City")
         val city: String,
         @SerializedName("Photo")
         val photo_url: String
-) : Parcelable
+) : Parcelable, CommonSpinnerElement
         //CommonSpinnerElement
