@@ -1,6 +1,5 @@
 package ru.kotlin.lapki
 
-import android.R.string
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -13,11 +12,10 @@ import kotlinx.android.synthetic.main.activity_addshelter.*
 import kotlinx.android.synthetic.main.activity_addshelter.city
 import kotlinx.android.synthetic.main.activity_addshelter.des
 import kotlinx.android.synthetic.main.activity_addshelter.name
-import kotlinx.android.synthetic.main.activity_addshelter.type
 
 import okhttp3.*
 import org.json.JSONObject
-import ru.kotlin.lapki.api.entities.ShelterAccaunt
+import ru.kotlin.lapki.api.entities.ShelterAccount
 import java.io.IOException
 
 
@@ -123,7 +121,7 @@ class ModifyShelter : AppCompatActivity() {
                         val u = (JSONObject(json).getJSONArray("shelter").getJSONObject(0)).toString()
                         println(u)
                         var gson = Gson()
-                        val uu = gson?.fromJson(u, ShelterAccaunt::class.java)
+                        val uu = gson?.fromJson(u, ShelterAccount::class.java)
                         println( uu.shelter_name)
                         name.setText(uu.shelter_name)
                        // val stringArray: Array<String> = uu.birth_date.split("-".toRegex()).toTypedArray()
@@ -157,7 +155,7 @@ class ModifyShelter : AppCompatActivity() {
         }
         ret.setOnClickListener {  if (session.getMod()=="add"){
             startActivity(Intent(this, MainActivity::class.java))}
-        else startActivity(Intent(this, ShelterAccauntActivity::class.java))}
+        else startActivity(Intent(this, ShelterAccountActivity::class.java))}
 
 
     }
@@ -214,7 +212,7 @@ private fun addS(){
             form.add("desc", descr)
             form.add("type", tt.toString())
             println("$name, $bd, $c, $descr, ${tt.toString()}")
-            val inten = Intent(this, ShelterAccaunt::class.java)
+            val inten = Intent(this, ShelterAccount::class.java)
             val request: Request = Request.Builder().url(URL).post(form.build()).build()
             okHttpClient.newCall(request).enqueue(object : Callback {
                 override fun onResponse(call: Call?, response: Response?) {

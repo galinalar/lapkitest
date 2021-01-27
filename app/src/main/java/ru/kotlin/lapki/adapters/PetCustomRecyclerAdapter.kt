@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import ru.kotlin.lapki.PetAc
+import ru.kotlin.lapki.PetAccountActivity
 import ru.kotlin.lapki.R
 
 
@@ -27,7 +27,7 @@ class PetCustomRecyclerAdapter (private val valueDescription: List<String>, priv
         holder.ButtonShelter?.text = valueDescription[position]
         holder.ButtonShelter?.setOnClickListener {
             println(valueID[position])
-            ContextCompat.startActivity(context, Intent(context, PetAc::class.java).apply {
+            ContextCompat.startActivity(context, Intent(context, PetAccountActivity::class.java).apply {
                 putExtra("id", valueID[position])
             }.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK), null)
 

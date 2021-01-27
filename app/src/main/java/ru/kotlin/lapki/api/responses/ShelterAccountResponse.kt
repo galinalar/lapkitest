@@ -1,11 +1,11 @@
 package ru.kotlin.lapki.api.responses
 
 import com.google.gson.annotations.SerializedName
-import ru.kotlin.lapki.api.entities.ShelterAccaunt
+import ru.kotlin.lapki.api.entities.ShelterAccount
 
-data class ShelterAccauntResponse (
+data class ShelterAccountResponse (
     @SerializedName("error")
     val isError: Boolean,
     @SerializedName("shelter")
-    val shelter: List<ShelterAccaunt>
+    val shelter: List<ShelterAccount>
 )

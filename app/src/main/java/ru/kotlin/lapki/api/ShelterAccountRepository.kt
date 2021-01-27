@@ -2,21 +2,17 @@ package ru.kotlin.lapki.api
 
 import com.google.gson.Gson
 import okhttp3.*
-import org.json.JSONObject
-import ru.kotlin.lapki.Cryption
 
 import ru.kotlin.lapki.UnsafeOkHttpClient
-import ru.kotlin.lapki.api.responses.LoginResponse
-import ru.kotlin.lapki.api.responses.ShelterAccauntResponse
-import java.io.IOException
+import ru.kotlin.lapki.api.responses.ShelterAccountResponse
 import java.lang.IllegalStateException
 
-object ShelterAccauntRepository {
+object ShelterAccountRepository {
     val okHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient()
 
-    fun get(id: String): ShelterAccauntResponse =
+    fun get(id: String): ShelterAccountResponse =
             Gson().fromJson(
-                    LoginRepository.okHttpClient.newCall(
+                    okHttpClient.newCall(
                             Request.Builder()
                                     .url(ApiScheme.GET_SHELTER_URL)
                                     .post(
@@ -24,6 +20,6 @@ object ShelterAccauntRepository {
                                     )
                                     .build()
                     ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
-                    ShelterAccauntResponse::class.java
+                    ShelterAccountResponse::class.java
             )
 }

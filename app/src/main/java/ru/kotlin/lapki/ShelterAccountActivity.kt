@@ -3,18 +3,11 @@ package ru.kotlin.lapki
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_list.*
 import kotlinx.android.synthetic.main.activity_shelterac.*
-import okhttp3.*
-import org.json.JSONObject
-import ru.kotlin.lapki.adapters.ShelterCustomRecyclerAdapter
-import ru.kotlin.lapki.api.ShelterAccauntRepository
-import ru.kotlin.lapki.api.ShelterListRepository
-import java.io.IOException
+import ru.kotlin.lapki.api.ShelterAccountRepository
 import java.text.SimpleDateFormat
 
-class ShelterAccauntActivity: AppCompatActivity() {
+class ShelterAccountActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shelterac)
@@ -46,7 +39,7 @@ class ShelterAccauntActivity: AppCompatActivity() {
         }
         Thread {
             try {
-                val shelterResponse = ShelterAccauntRepository.get(shelterID.toString())
+                val shelterResponse = ShelterAccountRepository.get(shelterID.toString())
                 if (shelterResponse.isError) throw IllegalAccessError() else {
                     val format = SimpleDateFormat("dd/MM/yyy")
                     activity_shelterac_name.setText(shelterResponse.shelter.first().shelter_name)

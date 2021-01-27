@@ -28,12 +28,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, RegistrationActivity::class.java))
         }
         shelter.setOnClickListener{
-            startActivity(Intent(this, ShelterAccauntActivity::class.java).apply {
+            startActivity(Intent(this, ShelterAccountActivity::class.java).apply {
                 putExtra("user", UserID(0, 0) as Parcelable)
             })
         }
         pet.setOnClickListener{
-            startActivity(Intent(this, PetAc::class.java))
+            startActivity(Intent(this, PetAccountActivity::class.java))
         }
        ac.setOnClickListener{
             startActivity(Intent(this, Accaunt::class.java))

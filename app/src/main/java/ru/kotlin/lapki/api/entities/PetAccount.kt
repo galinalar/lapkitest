@@ -6,14 +6,14 @@ import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @Parcelize
-data class PetAccaunt(
+data class PetAccount(
         @SerializedName("IDPet")
         val id_pet: Long,
         @SerializedName("Name")
-        val user_name: String,
+        val pet_name: String,
         @SerializedName("BirthDate")
         val birth_date: Date,
-        @SerializedName("Describe")
+        @SerializedName("Discribe")
         val describe: String,
         @SerializedName("Type")
         val type: String,

@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @Parcelize
-data class ShelterAccaunt(
+data class ShelterAccount(
         @SerializedName("IDShelter")
         val id_shelter: String,
         @SerializedName("Name")
