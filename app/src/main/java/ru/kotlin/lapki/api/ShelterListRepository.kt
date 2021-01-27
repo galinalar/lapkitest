@@ -11,21 +11,7 @@ import java.lang.IllegalStateException
 object ShelterListRepository {
     val okHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient()
 
-    fun shelters(): ShelterResponse {
-        println("Вошел")
-        println(  okHttpClient.newCall(
-                        Request.Builder()
-                                .url(ApiScheme.GET_LIST_URL)
-                                .post(
-                                        FormBody.Builder().apply {
-                                            add("table", "shelter")
-                                            add("id", "")
-                                        }.build()
-                                )
-                                .build()
-                ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"))
-        println("Вошел")
-        return Gson().fromJson(
+    fun shelters(): ShelterResponse = Gson().fromJson(
                 okHttpClient.newCall(
                         Request.Builder()
                                 .url(ApiScheme.GET_LIST_URL)
@@ -40,4 +26,3 @@ object ShelterListRepository {
                 ShelterResponse::class.java
         )
     }
-}

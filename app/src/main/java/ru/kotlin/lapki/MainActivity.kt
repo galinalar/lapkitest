@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, RegistrationActivity::class.java))
         }
         shelter.setOnClickListener{
-            startActivity(Intent(this, ShelterAc::class.java).apply {
+            startActivity(Intent(this, ShelterAccauntActivity::class.java).apply {
                 putExtra("user", UserID(0, 0) as Parcelable)
             })
         }

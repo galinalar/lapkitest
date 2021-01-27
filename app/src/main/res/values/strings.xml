@@ -28,4 +28,16 @@
     <string name="registr">Зарегистрироваться</string>
     <string name="shelters">Приюты</string>
     <string name="add">Добавить</string>
+    <string name="pets">Подопечные</string>
+    <string name="pets_lose">Потеряшки</string>
+    <string name="shelter_name">Название приюта</string>
+    <string name="shelter_data">Данные о приюте</string>
+    <string name="shelter_bd">Дата создания:</string>
+    <string name="city_with_points">Город:</string>
+    <string name="describe">Описание:</string>
+    <string name="shelter_type">Тип приюта:</string>
+    <string name="change_data">Изменить данные</string>
+    <string name="shelter_delete">Удалить приют</string>
+    <string name="shelter_requests">Смотреть заявки/Заявка волонтера</string>
+    <string name="return_list">Вернутся к списку</string>
 </resources>

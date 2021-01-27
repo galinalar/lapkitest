@@ -16,11 +16,11 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/sh"
+            android:id="@+id/activity_start_shelter"
             android:layout_width="281dp"
             android:layout_height="122sp"
             android:backgroundTint="@color/button"
-            android:text="Приюты"
+            android:text="@string/shelters"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,19 +38,19 @@
 
 
             <Button
-                android:id="@+id/pet"
+                android:id="@+id/activity_start_pet"
                 android:layout_width="wrap_content"
                 android:layout_height="122sp"
                 android:layout_weight="1"
                 android:shadowColor="@color/black"
-                android:text="Подопечные" />
+                android:text="@string/pets" />
 
             <Button
-                android:id="@+id/fpet"
+                android:id="@+id/activity_start_pet_lose"
                 android:layout_width="wrap_content"
                 android:layout_height="122sp"
                 android:layout_weight="1"
-                android:text="Потеряшки" />
+                android:text="@string/pets_lose" />
         </LinearLayout>
     </LinearLayout>
 

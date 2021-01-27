@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import ru.kotlin.lapki.PetAc
 import ru.kotlin.lapki.R
-import ru.kotlin.lapki.ShelterAc
+
 
 class PetCustomRecyclerAdapter (private val valueDescription: List<String>, private val valueID: List<Long>, val context: Context) :
         RecyclerView.Adapter<PetCustomRecyclerAdapter.MyViewHolder>() {

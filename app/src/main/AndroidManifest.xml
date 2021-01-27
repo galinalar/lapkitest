@@ -16,7 +16,7 @@
         <activity android:name=".AuthorizationActivity" />
         <activity android:name=".Navigation" />
         <activity android:name=".StartActivity" />
-        <activity android:name=".ShelterAc" />
+        <activity android:name=".ShelterAccauntActivity" />
         <activity android:name=".PetAc" />
         <activity android:name=".ModifyShelter" />
         <activity android:name=".ModifyPet" />

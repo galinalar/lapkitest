@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_addshelter.type
 
 import okhttp3.*
 import org.json.JSONObject
+import ru.kotlin.lapki.api.entities.ShelterAccaunt
 import java.io.IOException
 
 
@@ -122,20 +123,20 @@ class ModifyShelter : AppCompatActivity() {
                         val u = (JSONObject(json).getJSONArray("shelter").getJSONObject(0)).toString()
                         println(u)
                         var gson = Gson()
-                        val uu = gson?.fromJson(u, ShelterAcD::class.java)
-                        println( uu.Name)
-                        name.setText(uu.Name)
-                        val stringArray: Array<String> = uu.BirthDate.split("-".toRegex()).toTypedArray()
-                        bdate.setText(stringArray[0])
-                        val day = stringArray[2].toInt()-1
-                        spinnerS.setSelection(stringArray[2].toInt()-1)
-                        spinner2S.setSelection((stringArray[1].toInt()-1).toInt())
-                        println("String Arra $day ${stringArray[1].toInt()}")
-                        spinner3.setSelection(uu.IDType)
-                        city.setText(uu.City)
-                        println("Discribe ${uu.Discribe}")
-                        if (uu.Discribe!=null) {this@ModifyShelter.runOnUiThread {des.setText(uu.Discribe)}}
-                        spinner4.setSelection(uu.Role)
+                        val uu = gson?.fromJson(u, ShelterAccaunt::class.java)
+                        println( uu.shelter_name)
+                        name.setText(uu.shelter_name)
+                       // val stringArray: Array<String> = uu.birth_date.split("-".toRegex()).toTypedArray()
+                      //  bdate.setText(stringArray[0])
+                       // val day = stringArray[2].toInt()-1
+                       // spinnerS.setSelection(stringArray[2].toInt()-1)
+                       //spinner2S.setSelection((stringArray[1].toInt()-1).toInt())
+                       // println("String Arra $day ${stringArray[1].toInt()}")
+                        spinner3.setSelection(uu.type_id)
+                        city.setText(uu.city)
+                        println("Discribe ${uu.describe}")
+                        if (uu.describe!=null) {this@ModifyShelter.runOnUiThread {des.setText(uu.describe)}}
+                        spinner4.setSelection(uu.role)
                     }
                     else mist.setText("Что-то пошло не так")
                 }
@@ -156,7 +157,7 @@ class ModifyShelter : AppCompatActivity() {
         }
         ret.setOnClickListener {  if (session.getMod()=="add"){
             startActivity(Intent(this, MainActivity::class.java))}
-        else startActivity(Intent(this, ShelterAc::class.java))}
+        else startActivity(Intent(this, ShelterAccauntActivity::class.java))}
 
 
     }
@@ -213,7 +214,7 @@ private fun addS(){
             form.add("desc", descr)
             form.add("type", tt.toString())
             println("$name, $bd, $c, $descr, ${tt.toString()}")
-            val inten = Intent(this, ShelterAc::class.java)
+            val inten = Intent(this, ShelterAccaunt::class.java)
             val request: Request = Request.Builder().url(URL).post(form.build()).build()
             okHttpClient.newCall(request).enqueue(object : Callback {
                 override fun onResponse(call: Call?, response: Response?) {

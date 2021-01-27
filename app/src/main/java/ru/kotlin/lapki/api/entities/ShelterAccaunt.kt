@@ -17,7 +17,7 @@ data class ShelterAccaunt(
         val city: String,
         @SerializedName("Photo")
         val photo_url: String,
-        @SerializedName("Describe")
+        @SerializedName("Discribe")
         val describe: String,
         @SerializedName("IDType")
         val type_id: Int,

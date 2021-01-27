@@ -10,10 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import ru.kotlin.lapki.PetAc
-import ru.kotlin.lapki.R
-import ru.kotlin.lapki.SessionManager
-import ru.kotlin.lapki.ShelterAc
+import ru.kotlin.lapki.*
 
 class ShelterCustomRecyclerAdapter (private val valueDescription: List<String>, private val valueID: List<Int>, val context: Context) :
         RecyclerView.Adapter<ShelterCustomRecyclerAdapter.MyViewHolder>() {
@@ -31,7 +28,7 @@ class ShelterCustomRecyclerAdapter (private val valueDescription: List<String>, 
         holder.ButtonShelter?.setOnClickListener {
           //  Intent.FLAG_ACTIVITY_NEW_TASK
 
-            ContextCompat.startActivity(context, Intent(context, ShelterAc::class.java).apply {
+            ContextCompat.startActivity(context, Intent(context, ShelterAccauntActivity::class.java).apply {
                 putExtra("id", valueID[position])
             }.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK), null)
                 println(valueID[position])

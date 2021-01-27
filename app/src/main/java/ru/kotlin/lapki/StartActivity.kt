@@ -23,15 +23,15 @@ class StartActivity : AppCompatActivity() {
 
 
 
-        sh.setOnClickListener{
+        activity_start_shelter.setOnClickListener{
             //session.StartP("shelter")
             startActivity(Intent(this, ShelterListActivity::class.java))
         }
-        pet.setOnClickListener{
+        activity_start_pet.setOnClickListener{
            // session.StartP("pet")
             startActivity(Intent(this, PetListActivity::class.java))
         }
-        fpet.setOnClickListener{
+        activity_start_pet_lose.setOnClickListener{
 
            // session.StartP("fpet")
             startActivity(Intent(this, PetLoseListActivity::class.java))
