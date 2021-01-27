@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_user.name
 import kotlinx.android.synthetic.main.activity_user.req
 import okhttp3.*
 import org.json.JSONObject
+import ru.kotlin.lapki.api.SessionRepository
 import java.io.IOException
 
 data class User(val Name: String, val LastName: String, val BirthDate: String, val Sex: String, val Login: String, val City: String, val Telephone: String, val Discribe: String, val Photo: String, val Email: String)
@@ -21,10 +22,20 @@ class Accaunt : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
         session = SessionManager(applicationContext)
-                var user = session.getUserDetails()
-        var id = user.get(SessionManager.KEY_ID)
-        var role = user.get(SessionManager.KEY_ROLE)
-        var form = FormBody.Builder().add("id", id)
+        println(session.getSessionrDetails())
+        //не работает
+        try {
+            var session = SessionManager(applicationContext)
+            val sessionResponse = SessionRepository.get(
+                    session.getSessionrDetails().toString()
+
+            )
+            if (sessionResponse.isError) throw IllegalAccessError()
+
+            val ses = sessionResponse.id.toString()
+
+
+        var form = FormBody.Builder().add("id", ses)
         val request: Request = Request.Builder().url(URL).post(form.build()).build()
         println(request)
         okHttpClient.newCall(request).enqueue(object : Callback {
@@ -66,7 +77,16 @@ class Accaunt : AppCompatActivity() {
         req.setOnClickListener {
             session.Requests("req", "users")
            startActivity(Intent(this, Requests::class.java)) }
-
+        } catch (exception: Throwable) {
+            runOnUiThread {
+                val error = when (exception) {
+                    is IllegalAccessError -> "Что-то пошло не так"
+                    else -> "Все наебнулось2"
+                }
+                println(error)
+            }
+        }
 
     }
+
     }

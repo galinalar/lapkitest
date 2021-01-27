@@ -7,8 +7,23 @@
     <string name="password">Пароль</string>
     <string name="restore_password">Забыли пароль?</string>
     <string name="entry_button">Войти</string>
-    <string name="Forget">Забыли пароль</string>
+    <string name="forget">Забыли пароль</string>
     <string name="repeat_password">Подтверждение пароля</string>
     <string name="email">Адрес электронной почты</string>
     <string name="restore">Восстановить</string>
+    <string name="registration">Регистрация</string>
+    <string name="guest">Гость</string>
+    <string name="name">Имя</string>
+    <string name="name_hint">Введите свое имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="surname_hint">Введите свою фамилию</string>
+    <string name="birthdate">Дата рождения</string>
+    <string name="sex">Пол</string>
+    <string name="women">Женщина</string>
+    <string name="men">Мужчина</string>
+    <string name="city">Город</string>
+    <string name="city_hint">Введите свой город</string>
+    <string name="telephone">Телефон</string>
+    <string name="telephone_hint">Введите свой телефон</string>
+    <string name="registr">Зарегистрироваться</string>
 </resources>

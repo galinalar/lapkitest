@@ -18,14 +18,14 @@ class MainActivity : AppCompatActivity() {
         //Picasso.with(this).load("https://rozetked.me/images/uploads/dwoilp3BVjlE.jpg").fit().centerCrop().into(imageView2)
         Picasso.get().load("https://rozetked.me/images/uploads/dwoilp3BVjlE.jpg").into(imageView2);
 
-        auto.setOnClickListener{
+        activity_main_auto.setOnClickListener{
             startActivity(Intent(this, AuthorizationActivity::class.java))
         }
-        guest.setOnClickListener{
+        activity_main_guest.setOnClickListener{
             startActivity(Intent(this, StartActivity::class.java))
         }
-        reg.setOnClickListener{
-            startActivity(Intent(this, Registr::class.java))
+        activity_main_registration.setOnClickListener{
+            startActivity(Intent(this, RegistrationActivity::class.java))
         }
         shelter.setOnClickListener{
             startActivity(Intent(this, ShelterAc::class.java).apply {

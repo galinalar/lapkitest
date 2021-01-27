@@ -7,7 +7,7 @@
     android:background="@color/background"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".Registr">
+    tools:context=".ModifyShelter">
 
     <TextView
         android:id="@+id/vh"

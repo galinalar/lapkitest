@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Forget"
+        android:text="@string/forget"
         android:textSize="40sp"
         android:gravity="center_horizontal"
         android:textColor="@color/black"

@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.activity_shelterac.bd
 import kotlinx.android.synthetic.main.activity_shelterac.city
 import kotlinx.android.synthetic.main.activity_shelterac.name
 import kotlinx.android.synthetic.main.activity_shelterac.req
-import kotlinx.android.synthetic.main.activity_user.*
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
@@ -63,7 +62,7 @@ class ShelterAc : AppCompatActivity() {
             startActivity(Intent(this, Listt::class.java))
         }
         ret.setOnClickListener{
-            startActivity(Intent(this, Registr::class.java))
+            startActivity(Intent(this, RegistrationActivity::class.java))
         }
         ch.setOnClickListener{
             session.Mod("change")

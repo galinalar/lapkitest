@@ -36,4 +36,5 @@ object SessionRepository {
                     ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
                     SessionResponse::class.java
             )
+
 }

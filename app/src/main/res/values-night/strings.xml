@@ -5,4 +5,19 @@
     <string name="entry">Войти</string>
     <string name="Forget">Забыли пароль</string>
     <string name="restore">Восстановить</string>
+    <string name="registration">Регистрация</string>
+    <string name="guest">Гость</string>
+    <string name="name">Имя</string>
+    <string name="entry_name">Введите свое имя</string>
+    <string name="surnamr">Фамилия</string>
+    <string name="entry_surname">Введите свою фамилию</string>
+    <string name="birthdate">Дата рождения</string>
+    <string name="sex">Пол</string>
+    <string name="women">Женщина</string>
+    <string name="men">Мужчина</string>
+    <string name="city">Город</string>
+    <string name="city_hint">Введите свой город</string>
+    <string name="telephone">Телефон</string>
+    <string name="telephone_hint">Введите свой телефон</string>
+    <string name="registr">Зарегистрироваться</string>
 </resources>
