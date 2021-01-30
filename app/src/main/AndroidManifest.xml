@@ -19,6 +19,7 @@
         <activity android:name=".ShelterAccountActivity" />
         <activity android:name=".PetAccountActivity" />
         <activity android:name=".ModifyShelter" />
+        <activity android:name=".ShelterAddActivity" />
         <activity android:name=".ModifyPet" />
         <activity android:name=".Requests" />
         <activity android:name=".Accaunt" />

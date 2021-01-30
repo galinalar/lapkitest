@@ -2,14 +2,13 @@
 <resources>
     <string name="login_hint">Введите свой логин</string>
     <string name="restore_password">Забыли пароль?</string>
-    <string name="entry">Войти</string>
-    <string name="Forget">Забыли пароль</string>
+    <string name="forget">Забыли пароль</string>
     <string name="restore">Восстановить</string>
     <string name="registration">Регистрация</string>
     <string name="guest">Гость</string>
     <string name="name">Имя</string>
     <string name="entry_name">Введите свое имя</string>
-    <string name="surnamr">Фамилия</string>
+    <string name="surname">Фамилия</string>
     <string name="entry_surname">Введите свою фамилию</string>
     <string name="birthdate">Дата рождения</string>
     <string name="sex">Пол</string>
@@ -84,9 +83,6 @@
     <string name="shelter_type_without_points">Тип приюта</string>
     <string name="city_shelter_hint">Введите город</string>
     <string name="shelter_role">Роль приюта</string>
-    <string name="change_data">Изменить данные</string>
-    <string name="entry_name">Введите свое имя</string>
-    <string name="entry_surname">Введите свою фамилию</string>
     <string name="save">Сохранить</string>
     <string name="request_vol">Заявки волонтера</string>
     <string name="request_parents">Заявки опекунов</string>

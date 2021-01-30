@@ -13,6 +13,7 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_addpet.*
 import okhttp3.*
 import org.json.JSONObject
+import ru.kotlin.lapki.api.entities.PetAccount
 import ru.kotlin.lapki.api.entities.Shelter
 import ru.kotlin.lapki.api.responses.ShelterResponse
 import java.io.IOException
@@ -169,73 +170,73 @@ println("PPPPPPP ${session.getPet()}")
                         val u = (JSONObject(json).getJSONArray("pet").getJSONObject(0)).toString()
                         println(u)
                         var gson = Gson()
-                        val uu = gson?.fromJson(u, PetAcInfo::class.java)
-                        println( uu.Name)
-                        activity_addpet_name.setText(uu.Name)
-                        val stringArray: Array<String> = uu.BirthDate.split("-".toRegex()).toTypedArray()
-                        activity_addpet_year.setText(stringArray[0])
-                        val day = stringArray[2].toInt()-1
-                        activity_addpet_day.setSelection(stringArray[2].toInt()-1)
-                        activity_addpet_month.setSelection((stringArray[1].toInt()-1).toInt())
-                        println("String Arra $day ${stringArray[1].toInt()}")
+                        val uu = gson?.fromJson(u, PetAccount::class.java)
+                        println( uu.pet_name)
+                        activity_addpet_name.setText(uu.pet_name)
+                      //  val stringArray: Array<String> = uu.birth_date.split("-".toRegex()).toTypedArray()
+                        //activity_addpet_year.setText(stringArray[0])
+                        //val day = stringArray[2].toInt()-1
+                      //  activity_addpet_day.setSelection(stringArray[2].toInt()-1)
+                        //activity_addpet_month.setSelection((stringArray[1].toInt()-1).toInt())
+                        //println("String Arra $day ${stringArray[1].toInt()}")
                                 //discribe.setText(uu.Discribe)
 
-                        println("Discribe ${uu.Discribe}")
-                        if (uu.Discribe!=null) {this@ModifyPet.runOnUiThread { activity_addpet_describe.setText(uu.Discribe)}}
+                      //  println("Discribe ${uu.Discribe}")
+                        //if (uu.Discribe!=null) {this@ModifyPet.runOnUiThread { activity_addpet_describe.setText(uu.Discribe)}}
                         //spinner4.setSelection(uu.Role)
-                        activity_addpet_breed.setText(uu.Poroda)
+                        //activity_addpet_breed.setText(uu.Poroda)
                         var ss =-1
-                        if (uu.Sex=="Ж"){
-                            activity_addpet_women.setChecked(true)
-                        }  else activity_addpet_men.setChecked(true)
+                        //if (uu.Sex=="Ж"){
+                          //  activity_addpet_women.setChecked(true)
+                        //}  else activity_addpet_men.setChecked(true)
                         var act = -1
                         for (i in 0..acthypotalk.size-1){
-                            if (acthypotalk[i]==uu.Active){
-                                act = i
-                                break
-                            }
+                          //  if (acthypotalk[i]==uu.Active){
+                            //    act = i
+                              //  break
+                            //}
                         }
                         activity_addpet_active.setSelection(act)
-                        activity_addpet_size.setText(uu.Size)
+                       // activity_addpet_size.setText(uu.Size)
                         var ww = -1
                         for (i in 0..woo.size-1){
-                            if (woo[i]==uu.Wool){
-                                ww = i
-                                break
-                            }
+                           // if (woo[i]==uu.Wool){
+                            //    ww = i
+                           //     break
+                           // }
                         }
                         activity_addpet_wool.setSelection(ww)
                         ww = -1
                         for (i in 0..acthypotalk.size-1){
-                            if (acthypotalk[i]==uu.Hypo){
-                                ww = i
-                                break
-                            }
+                           // if (acthypotalk[i]==uu.Hypo){
+                           //     ww = i
+                           //     break
+                          //  }
                         }
                         activity_addpet_hypo.setSelection(ww)
                         ww=-1
                         for (i in 0..dr.size){
-                            if (dr[i]==uu.Dressir){
-                                ww = i
-                                break
-                            }
+                          //  if (dr[i]==uu.Dressir){
+                           //     ww = i
+                           //     break
+                           // }
                         }
                         activity_addpet_dressir.setSelection(ww)
-                        activity_addpet_dogs.setSelection(check(uu.Dogs))
-                        activity_addpet_animal.setSelection(check(uu.Animal))
-                        activity_addpet_child.setSelection(check(uu.Child))
-                        activity_addpet_children.setSelection(check(uu.Children))
-                        activity_addpet_teens.setSelection(check(uu.Teens))
-                        activity_addpet_ills.setText(uu.Ills)
-                        activity_addpet_sounds.setSelection(check(uu.Sounds))
+                       // activity_addpet_dogs.setSelection(check(uu.Dogs))
+                       // activity_addpet_animal.setSelection(check(uu.Animal))
+                       // activity_addpet_child.setSelection(check(uu.Child))
+                       // activity_addpet_children.setSelection(check(uu.Children))
+                       // activity_addpet_teens.setSelection(check(uu.Teens))
+                       // activity_addpet_ills.setText(uu.Ills)
+                       // activity_addpet_sounds.setSelection(check(uu.Sounds))
                         ww = -1
                         for (i in 0..acthypotalk.size-1){
-                            if (acthypotalk[i]==uu.Talkative){
-                                ww = i
-                                break
-                            }
+                         //   if (acthypotalk[i]==uu.Talkative){
+                         //       ww = i
+                         //       break
+                          //  }
                         }
-                        activity_addpet_talk.setSelection(ww)
+                      // activity_addpet_talk.setSelection(ww)
 
 
                     }

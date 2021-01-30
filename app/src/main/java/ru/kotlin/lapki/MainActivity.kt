@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, Accaunt::class.java))
         }
         addsh.setOnClickListener{
-            startActivity(Intent(this, ModifyShelter::class.java))
+            startActivity(Intent(this, ShelterAddActivity::class.java))
         }
         addpet.setOnClickListener{
             startActivity(Intent(this, ModifyPet::class.java))

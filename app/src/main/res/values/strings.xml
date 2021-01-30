@@ -36,7 +36,6 @@
     <string name="city_with_points">Город:</string>
     <string name="describe">Описание:</string>
     <string name="shelter_type">Тип приюта:</string>
-    <string name="change_data">Изменить данные</string>
     <string name="shelter_delete">Удалить приют</string>
     <string name="shelter_requests">Смотреть заявки/Заявка волонтера</string>
     <string name="return_list">Вернутся к списку</string>
