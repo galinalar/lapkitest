@@ -9,11 +9,11 @@
     android:gravity="center"
     >
     <TextView
-        android:id="@+id/vh"
+        android:id="@+id/activity_addpet_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Добавление питомца"
+        android:text="@string/pet_add"
         android:textColor="@color/black"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -26,30 +26,28 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/n"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Имя"
+                android:text="@string/name"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/name"
+                android:id="@+id/activity_addpet_name"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Введите имя питомца"
+                android:hint="@string/pet_name"
                 android:textColorHighlight="@color/black" />
             <TextView
-                android:id="@+id/d"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Дата рождения"
+                android:text="@string/birthdate"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -60,7 +58,7 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/spinnerS"
+                    android:id="@+id/activity_addpet_day"
                     android:layout_width="60dp"
                     android:layout_height="39dp"
                     android:background="@color/white"
@@ -70,14 +68,14 @@
                    />
 
                 <Spinner
-                    android:id="@+id/spinner2S"
+                    android:id="@+id/activity_addpet_month"
                     android:layout_width="60dp"
                     android:layout_height="39dp"
                     android:background="@color/white"
                     android:foregroundTint="@color/black" />
 
                 <EditText
-                    android:id="@+id/bdate"
+                    android:id="@+id/activity_addpet_year"
                     android:layout_width="60dp"
                     android:layout_height="39dp"
                     android:background="@color/white"
@@ -85,17 +83,16 @@
                     android:inputType="date" />
             </LinearLayout>
             <TextView
-                android:id="@+id/discr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Описание"
+                android:text="@string/describe_without_point"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/discribe"
+                android:id="@+id/activity_addpet_describe"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -103,18 +100,17 @@
                 android:inputType="textLongMessage"
                 android:textColorHighlight="@color/black" />
             <TextView
-                android:id="@+id/st"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Приют"
+                android:text="@string/shelter_without_point"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/shelter"
+                android:id="@+id/activity_addpet_shelter"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -123,17 +119,16 @@
 
                 />
             <TextView
-                android:id="@+id/por"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Порода"
+                android:text="@string/breed_without_point"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/poroda"
+                android:id="@+id/activity_addpet_breed"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -141,18 +136,17 @@
                 android:inputType="textPersonName"
                 android:textColorHighlight="@color/black" />
             <TextView
-                android:id="@+id/rol"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Статус"
+                android:text="@string/role"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/role"
+                android:id="@+id/activity_addpet_role"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -161,48 +155,45 @@
                 />
 
             <TextView
-                android:id="@+id/s"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Пол"
+                android:text="@string/sex"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/sex"
+                android:id="@+id/activity_addpet_sex"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:outlineSpotShadowColor="@color/button">
+                android:layout_height="match_parent">
 
                 <RadioButton
-                    android:id="@+id/w"
+                    android:id="@+id/activity_addpet_women"
                     android:layout_width="match_parent"
                     android:layout_height="39dp"
-                    android:text="Женский"
+                    android:text="@string/pet_women"
                     android:textColorLink="@color/button" />
 
                 <RadioButton
-                    android:id="@+id/men"
+                    android:id="@+id/activity_addpet_men"
                     android:layout_width="match_parent"
                     android:layout_height="39dp"
-                    android:text="Мужской"
+                    android:text="@string/pet_men"
                     android:textColorLink="@color/button"/>
             </RadioGroup>
             <TextView
-                android:id="@+id/ac"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Активность"
+                android:text="@string/active_without_points"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/active"
+                android:id="@+id/activity_addpet_active"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -210,17 +201,16 @@
                 android:gravity="left"
                 />
             <TextView
-                android:id="@+id/si"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Размер в см"
+                android:text="@string/size_sm"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/size"
+                android:id="@+id/activity_addpet_size"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -228,18 +218,17 @@
                 android:inputType="textPersonName"
                 android:textColorHighlight="@color/black" />
             <TextView
-                android:id="@+id/wo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Шерсть"
+                android:text="@string/wool_without_points"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/wool"
+                android:id="@+id/activity_addpet_wool"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -247,18 +236,17 @@
                 android:gravity="left"
                 />
             <TextView
-                android:id="@+id/h"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Гипоаллергенный"
+                android:text="@string/hypo_without_points"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/hypo"
+                android:id="@+id/activity_addpet_hypo"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -266,18 +254,17 @@
                 android:gravity="left"
                 />
             <TextView
-                android:id="@+id/dr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Поддается дрессировке"
+                android:text="@string/dressirovka"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/dressir"
+                android:id="@+id/activity_addpet_dressir"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -285,18 +272,17 @@
                 android:gravity="left"
                 />
             <TextView
-                android:id="@+id/dog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Отношения с другими собаками"
+                android:text="@string/dogs_without_points"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/dogs"
+                android:id="@+id/activity_addpet_dogs"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -304,18 +290,17 @@
                 android:gravity="left"
                 />
             <TextView
-                android:id="@+id/ani"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Отношения с другими животными"
+                android:text="@string/animals_without_points"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/animal"
+                android:id="@+id/activity_addpet_animal"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -323,18 +308,17 @@
                 android:gravity="left"
                 />
             <TextView
-                android:id="@+id/chi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Отношения с грудными детьми"
+                android:text="@string/child_without_points"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/child"
+                android:id="@+id/activity_addpet_child"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -342,18 +326,17 @@
                 android:gravity="left"
                 />
             <TextView
-                android:id="@+id/chil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Отношения с детьми"
+                android:text="@string/children_without_points"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/children"
+                android:id="@+id/activity_addpet_children"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -361,18 +344,17 @@
                 android:gravity="left"
                 />
             <TextView
-                android:id="@+id/te"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Отношения с подростками"
+                android:text="@string/teens_without_points"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/teens"
+                android:id="@+id/activity_addpet_teens"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -380,17 +362,16 @@
                 android:gravity="left"
                 />
             <TextView
-                android:id="@+id/i"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Болезни"
+                android:text="@string/ills_without_points"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/ills"
+                android:id="@+id/activity_addpet_ills"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -402,14 +383,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Отношение к громким звукам"
+                android:text="@string/sounds_without_points"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/sounds"
+                android:id="@+id/activity_addpet_sounds"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -417,18 +398,17 @@
                 android:gravity="left"
                 />
             <TextView
-                android:id="@+id/ta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Общительный"
+                android:text="@string/talk_without_points"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
             <Spinner
-                android:id="@+id/talk"
+                android:id="@+id/activity_addpet_talk"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:background="@color/white"
@@ -436,18 +416,17 @@
                 android:gravity="left"
                 />
             <Button
-                android:id="@+id/mod"
+                android:id="@+id/activity_addpet_mod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/button"
-                android:text="Добавить" />
+                android:text="@string/add" />
 
             <TextView
-                android:id="@+id/mist"
+                android:id="@+id/activity_addpet_error"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=" "
-                android:textColor="#A63600" />
+                android:textColor="@color/dark_orange" />
 
         </LinearLayout>
     </ScrollView>

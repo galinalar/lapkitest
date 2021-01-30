@@ -24,81 +24,110 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/activity_user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:text="@string/name"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/lname"
+                android:id="@+id/activity_user_surname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Last Name"
+                android:text="@string/surname"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
             <TextView
-                android:id="@+id/activity_authorization_login"
+                android:id="@+id/activity_user_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="(Логин)"
+                android:text="@string/login_with_brakets"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
         </LinearLayout>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/user_data"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@color/lightb">
+
             <TextView
-                android:id="@+id/D"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Данные о пользователе"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/bd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="День рождения: "
+                android:text="@string/birthdate_with_points"
                 android:textColor="@color/black"
                 />
             <TextView
-                android:id="@+id/s"
+                android:id="@+id/activity_user_birthday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Пол: "
                 android:textColor="@color/black"
                 />
             <TextView
-                android:id="@+id/city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Город: "
+                android:text="@string/sex_with_point"
                 android:textColor="@color/black"
                 />
             <TextView
-                android:id="@+id/t"
+                android:id="@+id/activity_user_sex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Телефон: "
                 android:textColor="@color/black"
                 />
             <TextView
-                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Электронная почта: "
+                android:text="@string/city_with_points"
                 android:textColor="@color/black"
                 />
             <TextView
-                android:id="@+id/dis"
+                android:id="@+id/activity_user_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Дополнительная информация: "
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/telephone_with_points"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/activity_user_telephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/email_with_points"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/activity_user_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_information"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/activity_user_describe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 />
             <LinearLayout
@@ -108,26 +137,26 @@
                 android:background="@color/lightb">
 
                 <Button
-                    android:id="@+id/change"
+                    android:id="@+id/activity_user_change"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Изменить" />
+                    android:text="@string/change" />
 
                 <Button
-                    android:id="@+id/delete"
+                    android:id="@+id/activity_user_delete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Удалить" />
+                    android:text="@string/delete" />
             </LinearLayout>
         </LinearLayout>
 
             <Button
-                android:id="@+id/test"
+                android:id="@+id/activity_user_test"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Пройти тестирование" />
+                android:text="@string/get_test" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -135,10 +164,9 @@
                 android:orientation="vertical"
                 android:background="@color/lightb">
                 <TextView
-                    android:id="@+id/Rr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Результаты тестирования"
+                    android:text="@string/test_result"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
@@ -149,19 +177,18 @@
                 android:orientation="vertical"
                 android:background="@color/lightb">
                 <TextView
-                    android:id="@+id/C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Сочетания"
+                    android:text="@string/combination"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
             </LinearLayout>
             <Button
-                android:id="@+id/req"
+                android:id="@+id/activity_user_request"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Заявки" />
+                android:text="@string/request" />
 
         </LinearLayout>
 

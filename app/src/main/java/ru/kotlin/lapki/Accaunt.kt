@@ -5,9 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_user.*
-import kotlinx.android.synthetic.main.activity_user.bd
-import kotlinx.android.synthetic.main.activity_user.name
-import kotlinx.android.synthetic.main.activity_user.req
 import okhttp3.*
 import org.json.JSONObject
 import ru.kotlin.lapki.api.SessionRepository
@@ -47,21 +44,21 @@ class Accaunt : AppCompatActivity() {
                     var gson = Gson()
                     val uu = gson?.fromJson(u, User::class.java)
                     println( uu.Name)
-                name.setText(uu.Name)
-                lname.setText(uu.LastName)
-                activity_authorization_login.setText(uu.Login)
-                val bdd = bd.text.toString()+uu.BirthDate
-                bd.setText(bdd)
-                val ss = s.text.toString()+uu.Sex
-                s.setText(ss)
-                val c = city.text.toString()+uu.City
-                city.setText(c)
-                val tt = t.text.toString()+uu.Telephone
-                t.setText(tt)
-                val e = email.text.toString()+uu.Email
-                email.setText(e)
-                val diss = dis.text.toString()+uu.Discribe
-                dis.setText(diss)
+                activity_user_name.setText(uu.Name)
+                activity_user_surname.setText(uu.LastName)
+                activity_user_login.setText(uu.Login)
+                val bdd = activity_user_birthday.text.toString()+uu.BirthDate
+                activity_user_birthday.setText(bdd)
+                val ss = activity_user_sex.text.toString()+uu.Sex
+                activity_user_sex.setText(ss)
+                val c = activity_user_city.text.toString()+uu.City
+                activity_user_city.setText(c)
+                val tt = activity_user_telephone.text.toString()+uu.Telephone
+                activity_user_telephone.setText(tt)
+                val e = activity_user_email.text.toString()+uu.Email
+                activity_user_email.setText(e)
+                val diss = activity_user_describe.text.toString()+uu.Discribe
+                activity_user_describe.setText(diss)
 
             }
 
@@ -70,11 +67,11 @@ class Accaunt : AppCompatActivity() {
             }
 
         })
-        delete.setOnClickListener{
+            activity_user_delete.setOnClickListener{
             session.TYPE_OBJ("users")
             Delete.Del(applicationContext)
         }
-        req.setOnClickListener {
+            activity_user_request.setOnClickListener {
             session.Requests("req", "users")
            startActivity(Intent(this, Requests::class.java)) }
         } catch (exception: Throwable) {

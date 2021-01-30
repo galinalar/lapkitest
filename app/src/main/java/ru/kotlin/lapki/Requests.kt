@@ -12,11 +12,11 @@ class Requests: AppCompatActivity() {
         setContentView(R.layout.activity_request)
         session = SessionManager(applicationContext)
         val key = session.getReq().get(SessionManager.KEY_REQUEST_START)
-        volonteer.setOnClickListener{
+        activity_request_volonteer.setOnClickListener{
             session.Requests("vol", key)
             startActivity(Intent(this, Requestslist::class.java))
         }
-        parents.setOnClickListener{
+        activity_request_parents.setOnClickListener{
             session.Requests("par",  key)
             startActivity(Intent(this, Requestslist::class.java))
         }

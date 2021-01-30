@@ -9,9 +9,6 @@ import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_addshelter.*
-import kotlinx.android.synthetic.main.activity_addshelter.city
-import kotlinx.android.synthetic.main.activity_addshelter.des
-import kotlinx.android.synthetic.main.activity_addshelter.name
 
 import okhttp3.*
 import org.json.JSONObject
@@ -39,12 +36,12 @@ class ModifyShelter : AppCompatActivity() {
         val months: Array<Int> = Array(12, {i->i+1})
         val ad = ArrayAdapter(this, android.R.layout.simple_spinner_item,dayss)
         val ad2 = ArrayAdapter(this, android.R.layout.simple_spinner_item,months)
-        val sp: Spinner = spinnerS
-        val sp2: Spinner = spinner2S
+        val sp: Spinner = activity_addshelter_day
+        val sp2: Spinner = activity_addshelter_month
         sp.adapter = ad
         sp2.adapter= ad2
-        if (session.getUserDetails().get(SessionManager.KEY_ROLE) == "1") {spinner4.visibility = View.VISIBLE
-            st.visibility = View.VISIBLE}
+        if (session.getUserDetails().get(SessionManager.KEY_ROLE) == "1") {activity_addshelter_role.visibility = View.VISIBLE
+            activity_addshelter_rolename.visibility = View.VISIBLE}
 
         val request: Request = Request.Builder().url(URL2).build()
         println(request)
@@ -62,7 +59,7 @@ class ModifyShelter : AppCompatActivity() {
                         ty = Array(listtype.type.size, {i->listtype.type[i].Type})
                                             println(ty[0])
                                             val ad3 = ArrayAdapter(this@ModifyShelter, android.R.layout.simple_spinner_item,ty)
-                                            val sp3: Spinner = spinner3
+                                            val sp3: Spinner = activity_addshelter_type
                                             sp3.adapter = ad3
                    }
 
@@ -92,7 +89,7 @@ class ModifyShelter : AppCompatActivity() {
                                             ro = Array(listtype.role.size, {i->listtype.role[i].Status})
                                             println(ty[0])
                                             val ad4 = ArrayAdapter(this@ModifyShelter, android.R.layout.simple_spinner_item,ro)
-                                            val sp4: Spinner = spinner4
+                                            val sp4: Spinner = activity_addshelter_role
                                             sp4.adapter = ad4
                    }
 
@@ -108,8 +105,8 @@ class ModifyShelter : AppCompatActivity() {
 
         })
         if (session.getMod()=="change"){
-            mod.setText("Сохранить")
-            vh.setText("Изменение данных приюта")
+            activity_addshelter_mod.setText("Сохранить")
+            activity_addshelter_head.setText("Изменение данных приюта")
             var form = FormBody.Builder().add("ids", session.getShelter())
             println(session.getShelter())
             val request: Request = Request.Builder().url(URL4).post(form.build()).build()
@@ -123,20 +120,20 @@ class ModifyShelter : AppCompatActivity() {
                         var gson = Gson()
                         val uu = gson?.fromJson(u, ShelterAccount::class.java)
                         println( uu.shelter_name)
-                        name.setText(uu.shelter_name)
+                        activity_addshelter_name.setText(uu.shelter_name)
                        // val stringArray: Array<String> = uu.birth_date.split("-".toRegex()).toTypedArray()
                       //  bdate.setText(stringArray[0])
                        // val day = stringArray[2].toInt()-1
                        // spinnerS.setSelection(stringArray[2].toInt()-1)
                        //spinner2S.setSelection((stringArray[1].toInt()-1).toInt())
                        // println("String Arra $day ${stringArray[1].toInt()}")
-                        spinner3.setSelection(uu.type_id)
-                        city.setText(uu.city)
+                        activity_addshelter_type.setSelection(uu.type_id)
+                        activity_addshelter_city.setText(uu.city)
                         println("Discribe ${uu.describe}")
-                        if (uu.describe!=null) {this@ModifyShelter.runOnUiThread {des.setText(uu.describe)}}
-                        spinner4.setSelection(uu.role)
+                        if (uu.describe!=null) {this@ModifyShelter.runOnUiThread {activity_addshelter_describe.setText(uu.describe)}}
+                        activity_addshelter_role.setSelection(uu.role)
                     }
-                    else mist.setText("Что-то пошло не так")
+                    else activity_addshelter_error.setText("Что-то пошло не так")
                 }
 
                 override fun onFailure(call: Call?, e: IOException?) {
@@ -145,58 +142,29 @@ class ModifyShelter : AppCompatActivity() {
 
             })
 
-        }else {mod.setText("Добавить")
-            vh.setText("Добавление приюта")
+        }else {activity_addshelter_mod.setText("Добавить")
+            activity_addshelter_head.setText("Добавление приюта")
         }
-        mod.setOnClickListener{
+        activity_addshelter_mod.setOnClickListener{
             if (session.getMod()=="add"){
             addS()}
             else modif()
         }
-        ret.setOnClickListener {  if (session.getMod()=="add"){
+        activity_addshelter_return.setOnClickListener {  if (session.getMod()=="add"){
             startActivity(Intent(this, MainActivity::class.java))}
         else startActivity(Intent(this, ShelterAccountActivity::class.java))}
 
 
     }
-    val LOG_TAG = "myLogs"
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putString("MOD", vh.getText().toString())
-        outState.putString("NAME", name.getText().toString())
-        outState.putString("YEAR", bdate.getText().toString())
-        outState.putString("CITY", city.getText().toString())
-        outState.putString("DES", des.getText().toString())
-        outState.putString("BUT", mod.getText().toString())
-        outState.putInt("DAY", spinnerS.selectedItemId.toInt())
-        outState.putInt("MON", spinner2S.selectedItemId.toInt())
-        outState.putInt("TYPE", spinner3.selectedItemId.toInt())
-        outState.putInt("ROLE", spinner4.selectedItemId.toInt())
-        Log.d(LOG_TAG, "onSaveInstanceState")
-    }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-        vh.setText(savedInstanceState.getString("MOD"))
-        name.setText(savedInstanceState.getString("NAME"))
-        bdate.setText(savedInstanceState.getString("YEAR"))
-        city.setText(savedInstanceState.getString("CITY"))
-        des.setText(savedInstanceState.getString("DES"))
-        mod.setText(savedInstanceState.getString("BUT"))
-        spinnerS.setSelection(savedInstanceState.getInt("DAY"))
-        spinner2S.setSelection(savedInstanceState.getInt("MON"))
-        spinner3.setSelection(savedInstanceState.getInt("TYPE"))
-        spinner4.setSelection(savedInstanceState.getInt("RoOLE"))
-        Log.d(LOG_TAG, "onRestoreInstanceState")
-    }
 private fun addS(){
-    val n = name.text.toString()
-    val year = bdate.text.toString()
-    val c = city.text.toString()
-    val day = spinnerS.selectedItem.toString()
-    val mon = spinner2S.selectedItem.toString()
-    val descr = des.text.toString()
-    val tt = spinner3.selectedItemId.toInt() +1
+    val n = activity_addshelter_name.text.toString()
+    val year = activity_addshelter_year.text.toString()
+    val c = activity_addshelter_city.text.toString()
+    val day = activity_addshelter_day.selectedItem.toString()
+    val mon = activity_addshelter_month.selectedItem.toString()
+    val descr = activity_addshelter_describe.text.toString()
+    val tt = activity_addshelter_type.selectedItemId.toInt() +1
     val ych = setOf('.','/','-')
 
     if((n!="") and (n!="Введите свое имя") and (year!="") and (c!="") and (c!="Введите свой город") and (year.any(ych::contains)==false)) {
@@ -211,7 +179,7 @@ private fun addS(){
             form.add("city", c)
             form.add("desc", descr)
             form.add("type", tt.toString())
-            println("$name, $bd, $c, $descr, ${tt.toString()}")
+            println("$bd, $c, $descr, ${tt.toString()}")
             val inten = Intent(this, ShelterAccount::class.java)
             val request: Request = Request.Builder().url(URL).post(form.build()).build()
             okHttpClient.newCall(request).enqueue(object : Callback {
@@ -223,7 +191,7 @@ private fun addS(){
                         session.Shelter(idsh)
                         startActivity(inten)
                     }
-                    else mist.setText("Что-то пошло не так")
+                    else activity_addshelter_error.setText("Что-то пошло не так")
                 }
 
                 override fun onFailure(call: Call?, e: IOException?) {
@@ -231,18 +199,18 @@ private fun addS(){
                 }
 
             })
-            mist.setText("ok")}else  mist.setText("Введите верный год")
-    } else  mist.setText("Неверно введены данные")
+            activity_addshelter_error.setText("ok")}else  activity_addshelter_error.setText("Введите верный год")
+    } else  activity_addshelter_error.setText("Неверно введены данные")
 }
     private fun modif(){
-        val n = name.text.toString()
-        val year = bdate.text.toString()
-        val c = city.text.toString()
-        val day = spinnerS.selectedItem.toString()
-        val mon = spinner2S.selectedItem.toString()
-        val descr = des.text.toString()
-        val tt = spinner3.selectedItemId.toInt() +1
-        val rol = spinner4.selectedItemId.toInt() +1
+        val n = activity_addshelter_name.text.toString()
+        val year = activity_addshelter_year.text.toString()
+        val c = activity_addshelter_city.text.toString()
+        val day = activity_addshelter_day.selectedItem.toString()
+        val mon = activity_addshelter_month.selectedItem.toString()
+        val descr = activity_addshelter_describe.text.toString()
+        val tt = activity_addshelter_type.selectedItemId.toInt() +1
+        val rol = activity_addshelter_role.selectedItemId.toInt() +1
         val ych = setOf('.','/','-')
 
         if((n!="") and (year!="") and (c!="") and (year.any(ych::contains)==false)) {
@@ -259,7 +227,7 @@ private fun addS(){
                 form.add("type", tt.toString())
                 form.add("role", rol.toString())
                 form.add("id", session.getShelter())
-                println("$name, $bd, $c, $descr, $tt $rol")
+                println(" $bd, $c, $descr, $tt $rol")
                 val request: Request = Request.Builder().url(URL5).post(form.build()).build()
                 okHttpClient.newCall(request).enqueue(object : Callback {
                     override fun onResponse(call: Call?, response: Response?) {
@@ -268,7 +236,7 @@ private fun addS(){
                         if ((JSONObject(json).get("error")).toString()=="false") {
 
                         }
-                        else mist.setText("Что-то пошло не так")
+                        else activity_addshelter_error.setText("Что-то пошло не так")
                     }
 
                     override fun onFailure(call: Call?, e: IOException?) {
@@ -276,7 +244,7 @@ private fun addS(){
                     }
 
                 })
-                mist.setText("ok")}else  mist.setText("Введите верный год")
-        } else  mist.setText("Неверно введены данные")
+                activity_addshelter_error.setText("ok")}else  activity_addshelter_error.setText("Введите верный год")
+        } else  activity_addshelter_error.setText("Неверно введены данные")
     }
 }

@@ -10,11 +10,11 @@
     tools:context=".ModifyShelter">
 
     <TextView
-        android:id="@+id/vh"
+        android:id="@+id/activity_addshelter_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Добавление приюта"
+        android:text="@string/shelter_add"
         android:textColor="@color/black"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -35,31 +35,29 @@
 
 
                 <TextView
-                    android:id="@+id/n"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:text="Название"
+                    android:text="@string/shelter_name"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/name"
+                    android:id="@+id/activity_addshelter_name"
                     android:layout_width="match_parent"
                     android:layout_height="39dp"
                     android:background="@color/white"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Введите название приюта"
+                    android:hint="@string/shelter_name_hint"
                     android:textColorHighlight="@color/black" />
 
                 <TextView
-                    android:id="@+id/d"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:text="Дата создания"
+                    android:text="@string/shelter_bd_without_points"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -70,7 +68,7 @@
                     android:orientation="horizontal">
 
                     <Spinner
-                        android:id="@+id/spinnerS"
+                        android:id="@+id/activity_addshelter_day"
                         android:layout_width="60dp"
                         android:layout_height="39dp"
                         android:background="@color/white"
@@ -79,14 +77,14 @@
                         android:foregroundTint="@color/black" />
 
                     <Spinner
-                        android:id="@+id/spinner2S"
+                        android:id="@+id/activity_addshelter_month"
                         android:layout_width="60dp"
                         android:layout_height="39dp"
                         android:background="@color/white"
                         android:foregroundTint="@color/black" />
 
                     <EditText
-                        android:id="@+id/bdate"
+                        android:id="@+id/activity_addshelter_year"
                         android:layout_width="60dp"
                         android:layout_height="39dp"
                         android:background="@color/white"
@@ -94,17 +92,16 @@
                         android:inputType="date" />
                 </LinearLayout>
                 <TextView
-                    android:id="@+id/type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:text="Тип приюта"
+                    android:text="@string/shelter_type_without_points"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spinner3"
+                    android:id="@+id/activity_addshelter_type"
                     android:layout_width="match_parent"
                     android:layout_height="39dp"
                     android:background="@color/white"
@@ -112,36 +109,34 @@
                     android:gravity="left" />
 
                 <TextView
-                    android:id="@+id/c"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:text="Город"
+                    android:text="@string/city"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/city"
+                    android:id="@+id/activity_addshelter_city"
                     android:layout_width="match_parent"
                     android:layout_height="39dp"
                     android:background="@color/white"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Введите город"
+                    android:hint="@string/city_shelter_hint"
                     android:textColorHighlight="@color/black" />
                 <TextView
-                    android:id="@+id/t"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:text="Описание"
+                    android:text="@string/describe_without_point"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/des"
+                    android:id="@+id/activity_addshelter_describe"
                     android:layout_width="match_parent"
                     android:layout_height="39dp"
                     android:background="@color/white"
@@ -150,18 +145,18 @@
                     android:text=""
                     android:textColorHighlight="@color/black" />
                 <TextView
-                    android:id="@+id/st"
+                    android:id="@+id/activity_addshelter_rolename"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:text="Тип приюта"
+                    android:text="@string/shelter_role"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:visibility="invisible"/>
 
                 <Spinner
-                    android:id="@+id/spinner4"
+                    android:id="@+id/activity_addshelter_role"
                     android:layout_width="match_parent"
                     android:layout_height="39dp"
                     android:background="@color/white"
@@ -173,22 +168,21 @@
 
 
                 <Button
-                    android:id="@+id/mod"
+                    android:id="@+id/activity_addshelter_mod"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/button"
-                    android:text="Добавить" />
+                    android:text="@string/add" />
 
                 <TextView
-                    android:id="@+id/mist"
+                    android:id="@+id/activity_addshelter_error"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=" "
                     android:textColor="#A63600" />
             </LinearLayout>
 
             <Button
-                android:id="@+id/ret"
+                android:id="@+id/activity_addshelter_return"
                 android:layout_width="274dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/button"

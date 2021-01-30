@@ -16,11 +16,11 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/volonteer"
+            android:id="@+id/activity_request_volonteer"
             android:layout_width="281dp"
             android:layout_height="122sp"
             android:backgroundTint="@color/button"
-            android:text="Заявки волонтера"
+            android:text="@string/request_vol"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,11 +30,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.414" />
         <Button
-            android:id="@+id/parents"
+            android:id="@+id/activity_request_parents"
             android:layout_width="281dp"
             android:layout_height="122sp"
             android:backgroundTint="@color/button"
-            android:text="Заявки опекунов"
+            android:text="@string/request_parents"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -44,8 +44,8 @@ class ModifyPet : AppCompatActivity() {
         val months: Array<Int> = Array(12, { i -> i + 1 })
         val ad = ArrayAdapter(this, android.R.layout.simple_spinner_item, dayss)
         val ad2 = ArrayAdapter(this, android.R.layout.simple_spinner_item, months)
-        val sp: Spinner = spinnerS
-        val sp2: Spinner = spinner2S
+        val sp: Spinner = activity_addpet_day
+        val sp2: Spinner = activity_addpet_month
         sp.adapter = ad
         sp2.adapter = ad2
         val acthypotalk:Array<String> = arrayOf("Да", "Нет")
@@ -56,17 +56,17 @@ class ModifyPet : AppCompatActivity() {
         val ad4 = ArrayAdapter(this, android.R.layout.simple_spinner_item, woo)
         val ad5 = ArrayAdapter(this, android.R.layout.simple_spinner_item, dr)
         val ad6 = ArrayAdapter(this, android.R.layout.simple_spinner_item, relat)
-        active.adapter = ad3
-        wool.adapter = ad4
-        hypo.adapter = ad3
-        dressir.adapter = ad5
-        dogs.adapter = ad6
-        animal.adapter = ad6
-        child.adapter = ad6
-        children.adapter = ad6
-        teens.adapter = ad6
-        sounds.adapter = ad6
-        talk.adapter = ad3
+        activity_addpet_active.adapter = ad3
+        activity_addpet_wool.adapter = ad4
+        activity_addpet_hypo.adapter = ad3
+        activity_addpet_dressir.adapter = ad5
+        activity_addpet_dogs.adapter = ad6
+        activity_addpet_animal.adapter = ad6
+        activity_addpet_child.adapter = ad6
+        activity_addpet_children.adapter = ad6
+        activity_addpet_teens.adapter = ad6
+        activity_addpet_sounds.adapter = ad6
+        activity_addpet_talk.adapter = ad3
         var ty:Array<String> = arrayOf("")
 println("PPPPPPP ${session.getPet()}")
         var form = FormBody.Builder().add("table", "shelter")
@@ -92,10 +92,10 @@ println("PPPPPPP ${session.getPet()}")
                        // shelter.adapter = ad7
                         // shelter.adapter= SpinAdapter(this@ModifyPet, tt)
                         val ad7 = SpinAdapter(this@ModifyPet, tt)
-                        shelter.adapter = ad7
+                        activity_addpet_shelter.adapter = ad7
                         if (session.getMod()=="change"){
                         var h = tt.indexOfFirst { it.id_shelter == session.getChPet().get(SessionManager.KEY_CHANGE_IDSHELTER)!!.toInt()}
-                        shelter.setSelection(h)}
+                            activity_addpet_shelter.setSelection(h)}
                                 //var pet = session.getChPet()
                        // var ids = 0
                        //   ids = pet.get(SessionManager.KEY_CHANGE_SHELTER)!!.toInt()
@@ -131,9 +131,9 @@ println("PPPPPPP ${session.getPet()}")
                        // println(ro[0])
                        // val ad8 = ArrayAdapter(this@ModifyPet, android.R.layout.simple_spinner_item,ro)
                         val ad8 = SpinAdapterSt(this@ModifyPet, ro)
-                        role.adapter = ad8
+                        activity_addpet_role.adapter = ad8
                         var h = ro.indexOfFirst { it.IDRole == session.getChPet().get(SessionManager.KEY_CHANGE_IDROLE)}
-                        role.setSelection(h)
+                        activity_addpet_role.setSelection(h)
                       //  var pet = session.getChPet()
                         //var idr = pet.get(SessionManager.KEY_CHANGE_ROLE)!!.toInt()
                         //if (session.getMod()=="change"){
@@ -154,8 +154,8 @@ println("PPPPPPP ${session.getPet()}")
 
         })
         if (session.getMod()=="change"){
-            mod.setText("Сохранить")
-            vh.setText("Изменение данных питомца")
+            activity_addpet_mod.setText("Сохранить")
+            activity_addpet_head.setText("Изменение данных питомца")
             var form = FormBody.Builder().add("id", session.getPet())
             println(session.getPet())
             val pp = session.getPet()
@@ -171,23 +171,23 @@ println("PPPPPPP ${session.getPet()}")
                         var gson = Gson()
                         val uu = gson?.fromJson(u, PetAcInfo::class.java)
                         println( uu.Name)
-                        name.setText(uu.Name)
+                        activity_addpet_name.setText(uu.Name)
                         val stringArray: Array<String> = uu.BirthDate.split("-".toRegex()).toTypedArray()
-                        bdate.setText(stringArray[0])
+                        activity_addpet_year.setText(stringArray[0])
                         val day = stringArray[2].toInt()-1
-                        spinnerS.setSelection(stringArray[2].toInt()-1)
-                        spinner2S.setSelection((stringArray[1].toInt()-1).toInt())
+                        activity_addpet_day.setSelection(stringArray[2].toInt()-1)
+                        activity_addpet_month.setSelection((stringArray[1].toInt()-1).toInt())
                         println("String Arra $day ${stringArray[1].toInt()}")
                                 //discribe.setText(uu.Discribe)
 
                         println("Discribe ${uu.Discribe}")
-                        if (uu.Discribe!=null) {this@ModifyPet.runOnUiThread { discribe.setText(uu.Discribe)}}
+                        if (uu.Discribe!=null) {this@ModifyPet.runOnUiThread { activity_addpet_describe.setText(uu.Discribe)}}
                         //spinner4.setSelection(uu.Role)
-                        poroda.setText(uu.Poroda)
+                        activity_addpet_breed.setText(uu.Poroda)
                         var ss =-1
                         if (uu.Sex=="Ж"){
-                            w.setChecked(true)
-                        }  else men.setChecked(true)
+                            activity_addpet_women.setChecked(true)
+                        }  else activity_addpet_men.setChecked(true)
                         var act = -1
                         for (i in 0..acthypotalk.size-1){
                             if (acthypotalk[i]==uu.Active){
@@ -195,8 +195,8 @@ println("PPPPPPP ${session.getPet()}")
                                 break
                             }
                         }
-                        active.setSelection(act)
-                        size.setText(uu.Size)
+                        activity_addpet_active.setSelection(act)
+                        activity_addpet_size.setText(uu.Size)
                         var ww = -1
                         for (i in 0..woo.size-1){
                             if (woo[i]==uu.Wool){
@@ -204,7 +204,7 @@ println("PPPPPPP ${session.getPet()}")
                                 break
                             }
                         }
-                        wool.setSelection(ww)
+                        activity_addpet_wool.setSelection(ww)
                         ww = -1
                         for (i in 0..acthypotalk.size-1){
                             if (acthypotalk[i]==uu.Hypo){
@@ -212,7 +212,7 @@ println("PPPPPPP ${session.getPet()}")
                                 break
                             }
                         }
-                        hypo.setSelection(ww)
+                        activity_addpet_hypo.setSelection(ww)
                         ww=-1
                         for (i in 0..dr.size){
                             if (dr[i]==uu.Dressir){
@@ -220,14 +220,14 @@ println("PPPPPPP ${session.getPet()}")
                                 break
                             }
                         }
-                        dressir.setSelection(ww)
-                        dogs.setSelection(check(uu.Dogs))
-                        animal.setSelection(check(uu.Animal))
-                        child.setSelection(check(uu.Child))
-                        children.setSelection(check(uu.Children))
-                        teens.setSelection(check(uu.Teens))
-                        ills.setText(uu.Ills)
-                        sounds.setSelection(check(uu.Sounds))
+                        activity_addpet_dressir.setSelection(ww)
+                        activity_addpet_dogs.setSelection(check(uu.Dogs))
+                        activity_addpet_animal.setSelection(check(uu.Animal))
+                        activity_addpet_child.setSelection(check(uu.Child))
+                        activity_addpet_children.setSelection(check(uu.Children))
+                        activity_addpet_teens.setSelection(check(uu.Teens))
+                        activity_addpet_ills.setText(uu.Ills)
+                        activity_addpet_sounds.setSelection(check(uu.Sounds))
                         ww = -1
                         for (i in 0..acthypotalk.size-1){
                             if (acthypotalk[i]==uu.Talkative){
@@ -235,11 +235,11 @@ println("PPPPPPP ${session.getPet()}")
                                 break
                             }
                         }
-                        talk.setSelection(ww)
+                        activity_addpet_talk.setSelection(ww)
 
 
                     }
-                    else mist.setText("Что-то пошло не так")
+                    else activity_addpet_error.setText("Что-то пошло не так")
                 }
                 fun check(g: String):Int{
                     var ww = -1
@@ -258,42 +258,42 @@ println("PPPPPPP ${session.getPet()}")
 
             })
 
-        }else {mod.setText("Добавить")
-            vh.setText("Добавление приюта")
+        }else {activity_addpet_mod.setText("Добавить")
+            activity_addpet_head.setText("Добавление приюта")
         }
-        mod.setOnClickListener {
+        activity_addpet_mod.setOnClickListener {
            if (session.getMod()=="add"){
                addP()
            }else modP()
-            println("${spinnerS.selectedItemId} ${spinner2S.selectedItemId} ${shelter.selectedItemId} ${role.selectedItemId} ${sex.checkedRadioButtonId} ${active.selectedItem.toString()} ${wool.selectedItem.toString()} ${hypo.selectedItem.toString()} ${dressir.selectedItem.toString()} ${dogs.selectedItem.toString()} ${animal.selectedItem.toString()}")
+            println("${activity_addpet_day.selectedItemId} ${activity_addpet_month.selectedItemId} ${activity_addpet_shelter.selectedItemId} ${activity_addpet_role.selectedItemId} ${activity_addpet_sex.checkedRadioButtonId} ${activity_addpet_active.selectedItem.toString()} ${activity_addpet_wool.selectedItem.toString()} ${activity_addpet_hypo.selectedItem.toString()} ${activity_addpet_dressir.selectedItem.toString()} ${activity_addpet_dogs.selectedItem.toString()} ${activity_addpet_animal.selectedItem.toString()}")
         }
 
 
     }
 
     private fun addP(){
-        val n = name.text.toString()
-        val year = bdate.text.toString()
-        val day = spinnerS.selectedItem.toString()
-        val mon = spinner2S.selectedItem.toString()
-        val descr = discribe.text.toString()
-        val shel = (shelter.selectedItem as Shelter).id_shelter
-        val por = poroda.text.toString()
-        val rol = (role.selectedItem as Role).IDRole
-        val se = sex.indexOfChild(sex.findViewById(sex.checkedRadioButtonId)).toString()
-        val act = active.selectedItem.toString()
-        val si = size.text.toString()
-        val wo = wool.selectedItem.toString()
-        val hy = hypo.selectedItem.toString()
-        val dres = dressir.selectedItem.toString()
-        val dog = dogs.selectedItem.toString()
-        val ani = animal.selectedItem.toString()
-        val chi = child.selectedItem.toString()
-        val chil = children.selectedItem.toString()
-        val te = teens.selectedItem.toString()
-        val il = ills.text.toString()
-        val sou = sounds.selectedItem.toString()
-        val tal = talk.selectedItem.toString()
+        val n = activity_addpet_name.text.toString()
+        val year = activity_addpet_year.text.toString()
+        val day = activity_addpet_day.selectedItem.toString()
+        val mon = activity_addpet_month.selectedItem.toString()
+        val descr = activity_addpet_describe.text.toString()
+        val shel = (activity_addpet_shelter.selectedItem as Shelter).id_shelter
+        val por = activity_addpet_breed.text.toString()
+        val rol = (activity_addpet_role.selectedItem as Role).IDRole
+        val se = activity_addpet_sex.indexOfChild(activity_addpet_sex.findViewById(activity_addpet_sex.checkedRadioButtonId)).toString()
+        val act = activity_addpet_active.selectedItem.toString()
+        val si = activity_addpet_size.text.toString()
+        val wo = activity_addpet_wool.selectedItem.toString()
+        val hy = activity_addpet_hypo.selectedItem.toString()
+        val dres = activity_addpet_dressir.selectedItem.toString()
+        val dog = activity_addpet_dogs.selectedItem.toString()
+        val ani = activity_addpet_animal.selectedItem.toString()
+        val chi = activity_addpet_child.selectedItem.toString()
+        val chil = activity_addpet_children.selectedItem.toString()
+        val te = activity_addpet_teens.selectedItem.toString()
+        val il = activity_addpet_ills.text.toString()
+        val sou = activity_addpet_sounds.selectedItem.toString()
+        val tal = activity_addpet_talk.selectedItem.toString()
         val ych = setOf('.','/','-')
         println("$n, $year, $descr, $rol")
         var form = FormBody.Builder().add("idshel", shel.toString())
@@ -340,7 +340,7 @@ println("PPPPPPP ${session.getPet()}")
                         if ((JSONObject(json).get("error")).toString()=="false") {
 
                         }
-                        else mist.setText("Что-то пошло не так")
+                        else activity_addpet_error.setText("Что-то пошло не так")
                     }
 
                     override fun onFailure(call: Call?, e: IOException?) {
@@ -348,32 +348,32 @@ println("PPPPPPP ${session.getPet()}")
                     }
 
                 })
-                mist.setText("ok")}else  mist.setText("Введите верный год")
-        } else  mist.setText("Неверно введены данные")
+                activity_addpet_error.setText("ok")}else  activity_addpet_error.setText("Введите верный год")
+        } else  activity_addpet_error.setText("Неверно введены данные")
     }
     private fun modP(){
-        val n = name.text.toString()
-        val year = bdate.text.toString()
-        val day = spinnerS.selectedItem.toString()
-        val mon = spinner2S.selectedItem.toString()
-        val descr = discribe.text.toString()
-        val shel = (shelter.selectedItem as Shelter).id_shelter
-        val por = poroda.text.toString()
-        val rol = (role.selectedItem as Role).IDRole
-        val se = sex.indexOfChild(sex.findViewById(sex.checkedRadioButtonId)).toString()
-        val act = active.selectedItem.toString()
-        val si = size.text.toString()
-        val wo = wool.selectedItem.toString()
-        val hy = hypo.selectedItem.toString()
-        val dres = dressir.selectedItem.toString()
-        val dog = dogs.selectedItem.toString()
-        val ani = animal.selectedItem.toString()
-        val chi = child.selectedItem.toString()
-        val chil = children.selectedItem.toString()
-        val te = teens.selectedItem.toString()
-        val il = ills.text.toString()
-        val sou = sounds.selectedItem.toString()
-        val tal = talk.selectedItem.toString()
+        val n = activity_addpet_name.text.toString()
+        val year = activity_addpet_year.text.toString()
+        val day = activity_addpet_day.selectedItem.toString()
+        val mon = activity_addpet_month.selectedItem.toString()
+        val descr = activity_addpet_describe.text.toString()
+        val shel = (activity_addpet_shelter.selectedItem as Shelter).id_shelter
+        val por = activity_addpet_breed.text.toString()
+        val rol = (activity_addpet_role.selectedItem as Role).IDRole
+        val se = activity_addpet_sex.indexOfChild(activity_addpet_sex.findViewById(activity_addpet_sex.checkedRadioButtonId)).toString()
+        val act = activity_addpet_active.selectedItem.toString()
+        val si = activity_addpet_size.text.toString()
+        val wo = activity_addpet_wool.selectedItem.toString()
+        val hy = activity_addpet_hypo.selectedItem.toString()
+        val dres = activity_addpet_dressir.selectedItem.toString()
+        val dog = activity_addpet_dogs.selectedItem.toString()
+        val ani = activity_addpet_animal.selectedItem.toString()
+        val chi = activity_addpet_child.selectedItem.toString()
+        val chil = activity_addpet_children.selectedItem.toString()
+        val te = activity_addpet_teens.selectedItem.toString()
+        val il = activity_addpet_ills.text.toString()
+        val sou = activity_addpet_sounds.selectedItem.toString()
+        val tal = activity_addpet_talk.selectedItem.toString()
         val ych = setOf('.','/','-')
         println("$n, $year, $descr, $rol")
         var form = FormBody.Builder().add("idshel", shel.toString())
@@ -419,7 +419,7 @@ println("PPPPPPP ${session.getPet()}")
                         if ((JSONObject(json).get("error")).toString()=="false") {
 
                         }
-                        else mist.setText("Что-то пошло не так")
+                        else activity_addpet_error.setText("Что-то пошло не так")
                     }
 
                     override fun onFailure(call: Call?, e: IOException?) {
@@ -427,8 +427,8 @@ println("PPPPPPP ${session.getPet()}")
                     }
 
                 })
-                mist.setText("ok")}else  mist.setText("Введите верный год")
-        } else  mist.setText("Неверно введены данные")
+                activity_addpet_error.setText("ok")}else  activity_addpet_error.setText("Введите верный год")
+        } else  activity_addpet_error.setText("Неверно введены данные")
     }
 
 }
