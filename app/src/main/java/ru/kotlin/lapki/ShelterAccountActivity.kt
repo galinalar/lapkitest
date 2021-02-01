@@ -23,11 +23,12 @@ class ShelterAccountActivity: AppCompatActivity() {
             startActivity(Intent(this, PetShelterListActivity::class.java))
         }
         activity_shelterac_return.setOnClickListener {
-            startActivity(Intent(this, RegistrationActivity::class.java))
+            startActivity(Intent(this, ShelterListActivity::class.java))
         }
         activity_shelterac_change.setOnClickListener {
-            session.Mod("change")
-            startActivity(Intent(this, ModifyShelter::class.java))
+            startActivity(Intent(this, ShelterChangeActivity::class.java).apply {
+                putExtra("id", shelterID)
+            })
         }
         activity_shelterac_delete.setOnClickListener {
             session.TYPE_OBJ("shelter")

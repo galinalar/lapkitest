@@ -30,4 +30,25 @@ object ShelterModifyRepository {
                     ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
                     ModifyResponse::class.java
             )
+
+    fun change(name: String, birthday: String, city: String, desc: String, type: String, role: String, id: String): ModifyResponse =
+            Gson().fromJson(
+                    okHttpClient.newCall(
+                            Request.Builder()
+                                    .url(ApiScheme.CHANGE_SHELTER_URL)
+                                    .post(
+                                            FormBody.Builder().apply {
+                                                add("name", name)
+                                                add("bd", birthday)
+                                                add("city", city)
+                                                add("desc", desc)
+                                                add("type", type)
+                                                add("role", role)
+                                                add("id", id)
+                                            }.build()
+                                    )
+                                    .build()
+                    ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
+                    ModifyResponse::class.java
+            )
 }
