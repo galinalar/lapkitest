@@ -26,6 +26,7 @@
         <activity android:name=".Accaunt" />
         <activity android:name=".RestoreActivity" />
         <activity android:name=".RegistrationActivity" />
+        <activity android:name=".UserAccountActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

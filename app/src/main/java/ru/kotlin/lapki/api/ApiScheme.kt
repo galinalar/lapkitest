@@ -10,7 +10,7 @@ object ApiScheme {
 
     const val GET_SESSION_URL = "$SERVER_URL/?op=getsession"
 
-    const val GET_USER_URL = "$SERVER_URL/?op=users"
+    const val GET_USER_URL = "$SERVER_URL/?op=user"
 
     const val RESTORE_PASSWORD_URL = "$SERVER_URL/?op=getusersemail"
 

@@ -24,8 +24,7 @@ class PetAccountActivity: AppCompatActivity() {
 
 
         activity_petac_del.setOnClickListener{
-            session.TYPE_OBJ("pet")
-            Delete.Del(applicationContext)
+            Delete.Del(applicationContext, "pet", petID.toString())
         }
         activity_petac_req.setOnClickListener { session.Requests("par", "pet")
             startActivity(Intent(this, Requestslist::class.java))

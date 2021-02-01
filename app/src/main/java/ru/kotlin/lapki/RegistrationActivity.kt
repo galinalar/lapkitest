@@ -67,7 +67,8 @@ class RegistrationActivity : AppCompatActivity() {
                         session.CreateSession(sessionResponse.id)
                         val s = session.getSessionrDetails()
                         runOnUiThread {
-                            startActivity(Intent(this, Accaunt::class.java))
+                            startActivity(Intent(this, UserAccountActivity::class.java))
+                            session.CreateLoginSession(registrationResponse.id.toString(), "3")
                             finish()
                         }
                     }

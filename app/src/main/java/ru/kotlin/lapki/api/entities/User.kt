@@ -20,8 +20,8 @@ data class User(
         @SerializedName("City")
         val city: String,
         @SerializedName("Telephone")
-        val telefone: String,
-        @SerializedName("Describe")
+        val telephone: String,
+        @SerializedName("Discribe")
         val describe: String,
         @SerializedName("Photo")
         val photo_url: String,

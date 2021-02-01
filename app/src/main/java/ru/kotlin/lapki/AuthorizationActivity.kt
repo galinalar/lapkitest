@@ -44,6 +44,7 @@ class AuthorizationActivity : AppCompatActivity() {
                 runOnUiThread {
 
                     startActivity(Intent(this, StartActivity::class.java))
+                    session.CreateLoginSession(loginResponse.users.first().id.toString(), loginResponse.users.first().role.toString())
                     finish()
                 }
             } catch (exception: Throwable) {

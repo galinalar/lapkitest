@@ -36,7 +36,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, PetAccountActivity::class.java))
         }
        ac.setOnClickListener{
-            startActivity(Intent(this, Accaunt::class.java))
+            startActivity(Intent(this, UserAccountActivity::class.java))
+           val session = SessionManager(applicationContext)
+           session.CreateLoginSession("1", "1")
         }
         addsh.setOnClickListener{
             startActivity(Intent(this, ShelterAddActivity::class.java))

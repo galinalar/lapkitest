@@ -31,8 +31,7 @@ class ShelterAccountActivity: AppCompatActivity() {
             })
         }
         activity_shelterac_delete.setOnClickListener {
-            session.TYPE_OBJ("shelter")
-            Delete.Del(applicationContext)
+            Delete.Del(applicationContext, "shelter", shelterID.toString())
         }
         activity_shelterac_req.setOnClickListener {
             session.Requests("req", "shelter")
