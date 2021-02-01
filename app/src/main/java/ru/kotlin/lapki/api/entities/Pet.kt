@@ -8,7 +8,7 @@ import java.util.*
 @Parcelize
 data class Pet(
         @SerializedName("IDPet")
-        val id_pet: Long,
+        val id_pet: Int,
         @SerializedName("Name")
         val pet_name: String,
         @SerializedName("BirthDate")

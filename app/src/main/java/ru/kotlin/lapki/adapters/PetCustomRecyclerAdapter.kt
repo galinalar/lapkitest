@@ -12,7 +12,7 @@ import ru.kotlin.lapki.PetAccountActivity
 import ru.kotlin.lapki.R
 
 
-class PetCustomRecyclerAdapter (private val valueDescription: List<String>, private val valueID: List<Long>, val context: Context) :
+class PetCustomRecyclerAdapter (private val valueDescription: List<String>, private val valueID: List<Int>, val context: Context) :
         RecyclerView.Adapter<PetCustomRecyclerAdapter.MyViewHolder>() {
 
 

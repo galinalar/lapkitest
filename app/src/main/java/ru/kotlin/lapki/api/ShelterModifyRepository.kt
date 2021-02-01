@@ -4,7 +4,6 @@ import com.google.gson.Gson
 import okhttp3.FormBody
 import okhttp3.Request
 import ru.kotlin.lapki.Cryption
-import ru.kotlin.lapki.ModifyPet
 import ru.kotlin.lapki.UnsafeOkHttpClient
 import ru.kotlin.lapki.api.responses.ModifyResponse
 import ru.kotlin.lapki.api.responses.SessionResponse

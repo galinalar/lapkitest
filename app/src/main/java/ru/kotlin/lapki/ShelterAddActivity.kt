@@ -45,7 +45,7 @@ class ShelterAddActivity : AppCompatActivity() {
 
                 }
                 val shelterRoleResponse = ShelterRoleRepository.get()
-                if (shelterTypeResponse.isError) throw IllegalAccessError() else {
+                if (shelterRoleResponse.isError) throw IllegalAccessError() else {
                     activity_addshelter_role.adapter = SpinRoleAdapter(this, shelterRoleResponse.role)
                 }
 

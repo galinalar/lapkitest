@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ShelterAddActivity::class.java))
         }
         addpet.setOnClickListener{
-            startActivity(Intent(this, ModifyPet::class.java))
+            startActivity(Intent(this, PetAddActivity::class.java))
         }
 
     }

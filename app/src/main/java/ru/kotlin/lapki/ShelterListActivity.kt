@@ -24,7 +24,7 @@ class ShelterListActivity: AppCompatActivity() {
         val session = SessionManager(applicationContext)
         activity_list_add.setOnClickListener {
             session.Mod("add")
-            startActivity(Intent(this, ModifyShelter::class.java))
+            startActivity(Intent(this, ShelterAddActivity::class.java))
         }
         //  if (session.getUserDetails().get(SessionManager.KEY_ROLE) == "1") activity_list_add.visibility = View.VISIBLE
         activity_list_head.text = "Приюты"

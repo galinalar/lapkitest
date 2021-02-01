@@ -1,7 +1,7 @@
 package ru.kotlin.lapki.api.responses
 
 import com.google.gson.annotations.SerializedName
-import ru.kotlin.lapki.Role
+
 import ru.kotlin.lapki.api.entities.ShelterRole
 import ru.kotlin.lapki.api.entities.UserID
 

@@ -20,10 +20,8 @@ class PetAccountActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_petac)
         val session = SessionManager(applicationContext)
-        val petID = intent.getLongExtra("id",0)
-        if (petID != null) {
-            println(petID)
-        }
+        val petID = intent.getIntExtra("id",0)
+
 
         activity_petac_del.setOnClickListener{
             session.TYPE_OBJ("pet")
@@ -39,7 +37,9 @@ class PetAccountActivity: AppCompatActivity() {
             println(activity_petac_rolid.text.toString())
             //session.Shelter(shelid.text.toString())
             println("SSSS ${session.getChPet().get(SessionManager.KEY_IDPET)} ${session.getChPet().get(SessionManager.KEY_CHANGE_IDROLE)} ${session.getChPet().get(SessionManager.KEY_CHANGE_IDSHELTER)} ")
-            startActivity(Intent(this, ModifyPet::class.java))
+            startActivity(Intent(this, PetChangeActivity::class.java).apply {
+                putExtra("id", petID)
+            })
         }
         activity_petac_return_list.setOnClickListener {
             startActivity(Intent(this,PetListActivity::class.java))
@@ -55,7 +55,7 @@ class PetAccountActivity: AppCompatActivity() {
                     activity_petac_name.setText(petResponse.pet.first().pet_name)
                     activity_petac_status.setText(petResponse.pet.first().role)
                     activity_petac_bd.setText(format.format(petResponse.pet.first().birth_date))
-                    activity_petac_describe.setText(petResponse.pet.first().describe)
+                    activity_petac_describe.setText(petResponse.pet.first().pet_describe)
                     activity_petac_type.setText(petResponse.pet.first().type)
                     activity_petac_shelter.setText(petResponse.pet.first().shelter)
                     activity_petac_sex.setText(petResponse.pet.first().sex)

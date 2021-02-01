@@ -18,10 +18,10 @@
         <activity android:name=".StartActivity" />
         <activity android:name=".ShelterAccountActivity" />
         <activity android:name=".PetAccountActivity" />
-        <activity android:name=".ModifyShelter" />
         <activity android:name=".ShelterAddActivity" />
         <activity android:name=".ShelterChangeActivity" />
-        <activity android:name=".ModifyPet" />
+        <activity android:name=".PetAddActivity" />
+        <activity android:name=".PetChangeActivity" />
         <activity android:name=".Requests" />
         <activity android:name=".Accaunt" />
         <activity android:name=".RestoreActivity" />

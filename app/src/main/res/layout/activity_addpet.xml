@@ -215,7 +215,7 @@
                 android:layout_height="39dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:textColorHighlight="@color/black" />
             <TextView
                 android:layout_width="match_parent"
@@ -421,12 +421,18 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/button"
                 android:text="@string/add" />
-
             <TextView
                 android:id="@+id/activity_addpet_error"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/dark_orange" />
+            <Button
+                android:id="@+id/activity_addpet_return"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/button"
+                android:text="@string/return_button" />
+
 
         </LinearLayout>
     </ScrollView>

@@ -24,7 +24,7 @@ class PetLoseListActivity : AppCompatActivity() {
         val session = SessionManager(applicationContext)
         activity_list_add.setOnClickListener {
             session.Mod("add")
-            startActivity(Intent(this, ModifyPet::class.java))
+            startActivity(Intent(this, PetAddActivity::class.java))
         }
       //  if (session.getUserDetails().get(SessionManager.KEY_ROLE) == "1") activity_list_add.visibility = View.VISIBLE
         activity_list_head.text = "Потеряшки"
@@ -36,7 +36,7 @@ class PetLoseListActivity : AppCompatActivity() {
                 val dataDescribe = mutableListOf<String>()
                 val format = SimpleDateFormat("dd/MM/yyy")
                 (0..petResponse.list.size - 1).forEach { i -> dataDescribe.add("${petResponse.list[i].pet_name} Дата рождения: ${format.format(petResponse.list[i].birth_date)}  Статус: ${petResponse.list[i].status} Пол: ${petResponse.list[i].sex} Приют: ${petResponse.list[i].shelter}") }
-                val dataID = mutableListOf<Long>()
+                val dataID = mutableListOf<Int>()
                 (0..petResponse.list.size - 1).forEach { i -> dataID.add(petResponse.list[i].id_pet) }
                 activity_list_recyclerView.adapter = PetCustomRecyclerAdapter(dataDescribe, dataID, applicationContext)
             }

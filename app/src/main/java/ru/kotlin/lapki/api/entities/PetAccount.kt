@@ -14,7 +14,7 @@ data class PetAccount(
         @SerializedName("BirthDate")
         val birth_date: Date,
         @SerializedName("Discribe")
-        val describe: String,
+        val pet_describe: String,
         @SerializedName("Type")
         val type: String,
         @SerializedName("IdShelt")
