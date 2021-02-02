@@ -38,20 +38,22 @@ class AuthorizationActivity : AppCompatActivity() {
                 )
                 if (sessionResponse.isError) throw IllegalAccessError()
                 val session = SessionManager(applicationContext)
-                session.CreateSession(sessionResponse.id)
-                session.CreateLoginSession(loginResponse.users.first().id.toString(),loginResponse.users.first().role.toString())
-                val s = session.getSessionrDetails()
+               // session.CreateSession(sessionResponse.id)
+               // session.CreateLoginSession(loginResponse.users.first().id.toString(),loginResponse.users.first().role.toString())
+                //val s = session.getSessionrDetails()
                 runOnUiThread {
 
-                    startActivity(Intent(this, StartActivity::class.java))
-                    session.CreateLoginSession(loginResponse.users.first().id.toString(), loginResponse.users.first().role.toString())
+                    startActivity(Intent(this, UserAccountActivity::class.java).apply {
+                        putExtra("id", loginResponse.users.first().id.toInt())
+                    })
+                    //session.CreateLoginSession(loginResponse.users.first().id.toString(), loginResponse.users.first().role.toString())
                     finish()
                 }
             } catch (exception: Throwable) {
                 runOnUiThread {
                     activity_authorization_error.text = when (exception) {
                         is IllegalAccessError -> "Неверный логин или пароль, мудила"
-                        else -> "Все наебнулось1"
+                        else -> exception.message
                     }
                 }
             }

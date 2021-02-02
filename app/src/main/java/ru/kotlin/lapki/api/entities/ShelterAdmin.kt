@@ -5,9 +5,11 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class UserID(
+data class ShelterAdmin (
+        @SerializedName("ID")
+        val id: Int,
+        @SerializedName("IDShelter")
+        val id_shelter: Int,
         @SerializedName("IDUser")
-        var id: Int,
-        @SerializedName("IDRole")
-        var role: Int
+        val id_user: Int
 ) : Parcelable

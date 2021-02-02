@@ -22,6 +22,7 @@ class SpinRoleAdapter (val appcontext: Context, var items : List<ShelterRole>): 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View =
             LayoutInflater.from(appcontext).inflate(android.R.layout.simple_spinner_item, null)
                     ?.findViewById<TextView>(android.R.id.text1)?.apply {
+                        println(items[position].role)
                         text = items[position].role
                     } as View
 

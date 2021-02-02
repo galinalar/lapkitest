@@ -285,7 +285,6 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:visibility="invisible"
                     />
 
                 <Spinner
@@ -295,7 +294,6 @@
                     android:background="@color/white"
                     android:foregroundTint="@color/black"
                     android:gravity="left"
-                    android:visibility="invisible"
                     />
 
 

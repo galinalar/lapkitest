@@ -14,6 +14,7 @@ class UserAccountActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user)
         val session = SessionManager(applicationContext)
         session.getUserDetails().get(SessionManager.KEY_ID)
+        val userID = intent.getIntExtra("id", 0)
         Thread {
             try {
                 val userResponse = UserAccountRepository.get(session.getUserDetails().get(SessionManager.KEY_ID).toString())
@@ -42,7 +43,9 @@ class UserAccountActivity : AppCompatActivity() {
             }
         }.start()
         activity_user_change.setOnClickListener {
-
+            startActivity(Intent(this, UserModifyActivity::class.java).apply {
+                putExtra("id", userID)
+            })
         }
         activity_user_delete.setOnClickListener{
             Delete.Del(applicationContext, "users",session.getUserDetails().get(SessionManager.KEY_ID)!!)

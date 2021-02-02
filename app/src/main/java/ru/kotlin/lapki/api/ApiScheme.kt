@@ -24,6 +24,12 @@ object ApiScheme {
 
     const val GET_PET_ROLE_URL = "$SERVER_URL/?op=getrolep"
 
+    const val GET_USER_ROLE_URL = "$SERVER_URL/?op=getroleu"
+
+    const val CHANGE_USER_URL = "$SERVER_URL/?op=chuser"
+
+    const val GET_SHELTER_ADMIN_URL = "$SERVER_URL/?op=getshelteradmin"
+
     const val GET_PET_URL = "$SERVER_URL/?op=getpet"
 
     const val CHANGE_PET_URL = "$SERVER_URL/?op=chpet"
@@ -39,6 +45,12 @@ object ApiScheme {
     const val CHANGE_SHELTER_URL = "$SERVER_URL/?op=chshelter"
 
     const val ADD_USER_URL = "$SERVER_URL/?op=addusers"
+
+    const val ADD_ADMIN_URL = "$SERVER_URL/?op=addshelteradmin"
+
+    const val CHANGE_ADMIN_URL = "$SERVER_URL/?op=chshelteradmin"
+
+    const val DELETE_ADMIN_URL = "$SERVER_URL/?op=delshelteradmin"
 
 
 

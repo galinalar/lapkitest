@@ -23,7 +23,7 @@
         <activity android:name=".PetAddActivity" />
         <activity android:name=".PetChangeActivity" />
         <activity android:name=".Requests" />
-        <activity android:name=".Accaunt" />
+        <activity android:name=".UserModifyActivity" />
         <activity android:name=".RestoreActivity" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".UserAccountActivity" />

@@ -17,6 +17,8 @@ data class User(
         val sex: String,
         @SerializedName("Login")
         val login: String,
+        @SerializedName("Password")
+        val pass: String,
         @SerializedName("City")
         val city: String,
         @SerializedName("Telephone")
@@ -26,5 +28,7 @@ data class User(
         @SerializedName("Photo")
         val photo_url: String,
         @SerializedName("Email")
-        val email: String
+        val email: String,
+        @SerializedName("Role")
+        val id_role: Int
 ) : Parcelable
