@@ -74,4 +74,19 @@ object RequestRepository {
                     ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
                     RequestOwnerResponse ::class.java
             )
+    fun OwnerPet(id: String): RequestOwnerResponse =
+            Gson().fromJson(
+                    okHttpClient.newCall(
+                            Request.Builder()
+                                    .url(ApiScheme.REQUEST_OWNER_URL)
+                                    .post(
+                                            FormBody.Builder().apply {
+                                                add("obj", "pet")
+                                                add("id", id)
+                                            }.build()
+                                    )
+                                    .build()
+                    ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
+                    RequestOwnerResponse ::class.java
+            )
 }

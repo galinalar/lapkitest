@@ -12,18 +12,19 @@ class RequestsActivity: AppCompatActivity() {
         setContentView(R.layout.activity_request)
         session = SessionManager(applicationContext)
         val key = intent.getStringExtra("mod")
-        val shelterID = intent.getIntExtra("id", 0)
+        val ID = intent.getIntExtra("id", 0)
         activity_request_volonteer.setOnClickListener{
             session.Requests("vol", key)
             startActivity(Intent(this, RequestslistVolActivity::class.java).apply {
                 putExtra("mod", key)
-                putExtra("id", shelterID)
+                putExtra("id", ID)
             })
         }
         activity_request_parents.setOnClickListener{
             session.Requests("par",  key)
-            startActivity(Intent(this, RequestslistParActivity::class.java).apply {
+            startActivity(Intent(this, RequestslistOwnerActivity::class.java).apply {
                 putExtra("mod", key)
+                putExtra("id", ID)
             })
         }
     }

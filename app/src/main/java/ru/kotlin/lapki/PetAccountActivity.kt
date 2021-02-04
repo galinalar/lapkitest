@@ -10,6 +10,7 @@ import okhttp3.*
 import org.json.JSONObject
 import ru.kotlin.lapki.api.PetAccountRepository
 import ru.kotlin.lapki.api.ShelterAccountRepository
+import ru.kotlin.lapki.api.entities.RequestOwner
 import ru.kotlin.lapki.api.entities.ShelterAccount
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -27,7 +28,10 @@ class PetAccountActivity: AppCompatActivity() {
             Delete.Del(applicationContext, "pet", petID.toString())
         }
         activity_petac_req.setOnClickListener { session.Requests("par", "pet")
-            startActivity(Intent(this, Requestslist::class.java))
+            startActivity(Intent(this, RequestslistOwnerActivity::class.java).apply {
+                putExtra("mod", "pet")
+                putExtra("id", petID)
+            })
         }
         activity_petac_change.setOnClickListener {
             //session.Pet(session.getPet())

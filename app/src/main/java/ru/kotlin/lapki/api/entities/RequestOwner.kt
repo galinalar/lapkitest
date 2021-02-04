@@ -19,15 +19,17 @@ data class RequestOwner (
         @SerializedName("IDType")
         val id_type: Int,
         @SerializedName("Status")
-        val status: String,
+        val role: String,
         @SerializedName("IDShelter")
         val id_shelter: Int,
+        @SerializedName("NameP")
+        val pet_name: String,
         @SerializedName("NameU")
         val user_name: String,
         @SerializedName("LastName")
         val user_surname: String,
         @SerializedName("TypeName")
         val type_name: String,
-        @SerializedName("ShelterName")
+        @SerializedName("Shelter")
         val shelter: String
 ) : Parcelable

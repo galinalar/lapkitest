@@ -33,11 +33,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/sharp" />
         <TextView
             android:id="@+id/request_list_item_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/_0000" />
 
     </LinearLayout>
@@ -48,11 +50,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="@string/role_with_points" />
             <TextView
                 android:id="@+id/request_list_item_role"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 />
             </LinearLayout>
             <LinearLayout
@@ -62,11 +66,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="@string/fio" />
             <TextView
                 android:id="@+id/request_list_item_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 />
         </LinearLayout>
             <LinearLayout
@@ -76,11 +82,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="@string/type" />
                 <TextView
                     android:id="@+id/request_list_item_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     />
             </LinearLayout>
             <LinearLayout
@@ -91,11 +99,13 @@
                     android:id="@+id/request_list_item_obj_head"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="@string/shelter_name" />
                 <TextView
                     android:id="@+id/request_list_item_obj"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     />
             </LinearLayout>
 
