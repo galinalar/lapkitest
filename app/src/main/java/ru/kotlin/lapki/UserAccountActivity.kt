@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_user.*
-import ru.kotlin.lapki.api.ShelterAccountRepository
 import ru.kotlin.lapki.api.UserAccountRepository
 import java.text.SimpleDateFormat
 
@@ -17,7 +16,7 @@ class UserAccountActivity : AppCompatActivity() {
         val userID = intent.getIntExtra("id", 0)
         Thread {
             try {
-                val userResponse = UserAccountRepository.get(session.getUserDetails().get(SessionManager.KEY_ID).toString())
+                val userResponse = UserAccountRepository.get(userID.toString())
                 if (userResponse.isError) throw IllegalAccessError() else {
                     val format = SimpleDateFormat("dd/MM/yyy")
                     activity_user_name.setText(userResponse.user.first().user_name)
@@ -52,7 +51,10 @@ class UserAccountActivity : AppCompatActivity() {
         }
         activity_user_request.setOnClickListener {
             session.Requests("req", "users")
-            startActivity(Intent(this, Requests::class.java))
+            startActivity(Intent(this, RequestsActivity::class.java).apply {
+                putExtra("mod", "users")
+                putExtra("id", userID)
+            })
         }
     }
 

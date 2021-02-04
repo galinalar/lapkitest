@@ -35,7 +35,10 @@ class ShelterAccountActivity: AppCompatActivity() {
         }
         activity_shelterac_req.setOnClickListener {
             session.Requests("req", "shelter")
-            startActivity(Intent(this, Requests::class.java))
+            startActivity(Intent(this, RequestsActivity::class.java).apply {
+                putExtra("mod", "shelter")
+                putExtra("id", shelterID)
+            })
         }
         Thread {
             try {

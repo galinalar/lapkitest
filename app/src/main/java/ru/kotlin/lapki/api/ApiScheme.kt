@@ -52,9 +52,8 @@ object ApiScheme {
 
     const val DELETE_ADMIN_URL = "$SERVER_URL/?op=delshelteradmin"
 
+    const val REQUEST_VOL_URL = "$SERVER_URL/?op=getrequestvol"
 
-
-
-
+    const val REQUEST_OWNER_URL = "$SERVER_URL/?op=getrequestowner"
 
 }

@@ -22,11 +22,12 @@
         <activity android:name=".ShelterChangeActivity" />
         <activity android:name=".PetAddActivity" />
         <activity android:name=".PetChangeActivity" />
-        <activity android:name=".Requests" />
+        <activity android:name=".RequestsActivity" />
         <activity android:name=".UserModifyActivity" />
         <activity android:name=".RestoreActivity" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".UserAccountActivity" />
+        <activity android:name=".RequestslistVolActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

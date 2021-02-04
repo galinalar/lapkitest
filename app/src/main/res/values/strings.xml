@@ -106,4 +106,9 @@
     <string name="test_result">Результаты тестирования</string>
     <string name="combination">Сочетания</string>
     <string name="request">Заявки</string>
+    <string name="sharp">#</string>
+    <string name="_0000">0000</string>
+    <string name="role_with_points">Статус:</string>
+    <string name="fio">ФИО:</string>
+    <string name="type">Тип:</string>
 </resources>
