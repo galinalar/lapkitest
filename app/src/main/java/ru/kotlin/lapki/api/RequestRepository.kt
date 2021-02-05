@@ -44,6 +44,21 @@ object RequestRepository {
                     ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
                     RequestVolResponse ::class.java
             )
+    fun VolReq(id: String): RequestVolResponse =
+            Gson().fromJson(
+                    okHttpClient.newCall(
+                            Request.Builder()
+                                    .url(ApiScheme.REQUEST_VOL_URL)
+                                    .post(
+                                            FormBody.Builder().apply {
+                                                add("obj", "request")
+                                                add("id", id)
+                                            }.build()
+                                    )
+                                    .build()
+                    ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
+                    RequestVolResponse ::class.java
+            )
     fun OwnerShelter(id: String): RequestOwnerResponse =
             Gson().fromJson(
                     okHttpClient.newCall(

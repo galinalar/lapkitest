@@ -102,4 +102,9 @@
     <string name="role_with_points">Статус: </string>
     <string name="fio">ФИО: </string>
     <string name="type">Тип: </string>
+    <string name="request_view">Просмотр заявок</string>
+    <string name="equest_volonteer">Заявка волонтера</string>
+    <string name="comment">Комментарий</string>
+    <string name="accept">Принять</string>
+    <string name="reject">Отклонить</string>
 </resources>

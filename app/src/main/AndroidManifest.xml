@@ -28,6 +28,7 @@
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".UserAccountActivity" />
         <activity android:name=".RequestslistVolActivity" />
+        <activity android:name=".RequestVolActivity" />
         <activity android:name=".RequestslistOwnerActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

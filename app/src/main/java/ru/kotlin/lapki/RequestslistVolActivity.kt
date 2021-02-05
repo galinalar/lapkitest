@@ -50,7 +50,7 @@ class RequestslistVolActivity : AppCompatActivity() {
                     val dataObj = mutableListOf<String>()
                     (0..volResponse.request.size - 1).forEach { i -> dataObj.add(volResponse.request[i].shelter) }
 
-                    activity_request_list_recyclerView.adapter = VolCustomRecyclerAdapter(dataID, dataRole, dataFIO, dataType, dataObj, applicationContext)
+                    activity_request_list_recyclerView.adapter = VolCustomRecyclerAdapter(volResponse.request, applicationContext)
                 }
 
 
