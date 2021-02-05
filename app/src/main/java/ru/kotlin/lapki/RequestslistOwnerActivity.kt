@@ -48,7 +48,7 @@ class RequestslistOwnerActivity : AppCompatActivity() {
                     val dataObj = mutableListOf<String>()
                     (0..parResponse.request.size - 1).forEach { i -> dataObj.add("${parResponse.request[i].pet_name} из ${parResponse.request[i].shelter}") }
                     println(dataID)
-                    activity_request_list_recyclerView.adapter = OwnerCustomRecyclerAdapter(dataID, dataRole, dataFIO, dataType, dataObj, applicationContext)
+                    activity_request_list_recyclerView.adapter = OwnerCustomRecyclerAdapter(parResponse.request, applicationContext)
                 }
 
 

@@ -39,17 +39,6 @@ class RequestslistVolActivity : AppCompatActivity() {
                 if (key == "shelter") volResponse = RequestRepository.VolShelter(id.toString()) else volResponse = RequestRepository.VolUser(id.toString())
                 if (volResponse.isError) throw IllegalAccessError() else
                 {
-                    val dataID = mutableListOf<Int>()
-                    (0..volResponse.request.size - 1).forEach { i -> dataID.add(volResponse.request[i].id_req) }
-                    val dataRole = mutableListOf<String>()
-                    (0..volResponse.request.size - 1).forEach { i -> dataRole.add(volResponse.request[i].role) }
-                    val dataFIO = mutableListOf<String>()
-                    (0..volResponse.request.size - 1).forEach { i -> dataFIO.add("${volResponse.request[i].user_name} ${volResponse.request[i].user_surname}") }
-                    val dataType = mutableListOf<String>()
-                    (0..volResponse.request.size - 1).forEach { i -> dataType.add("Волонтер") }
-                    val dataObj = mutableListOf<String>()
-                    (0..volResponse.request.size - 1).forEach { i -> dataObj.add(volResponse.request[i].shelter) }
-
                     activity_request_list_recyclerView.adapter = VolCustomRecyclerAdapter(volResponse.request, applicationContext)
                 }
 

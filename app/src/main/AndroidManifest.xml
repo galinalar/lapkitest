@@ -30,6 +30,7 @@
         <activity android:name=".RequestslistVolActivity" />
         <activity android:name=".RequestVolActivity" />
         <activity android:name=".RequestslistOwnerActivity" />
+        <activity android:name=".RequestOwnerActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

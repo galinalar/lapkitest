@@ -116,4 +116,6 @@
     <string name="comment">Комментарий</string>
     <string name="accept">Принять</string>
     <string name="reject">Отклонить</string>
+    <string name="request_owner">Заявка на опекунство</string>
+    <string name="pet_type_without_points">Вид</string>
 </resources>
