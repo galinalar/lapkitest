@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".ModifyShelter">
+    android:gravity="center">
 
     <TextView
         android:id="@+id/activity_addshelter_head"

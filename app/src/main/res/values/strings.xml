@@ -118,4 +118,5 @@
     <string name="reject">Отклонить</string>
     <string name="request_owner">Заявка на опекунство</string>
     <string name="pet_type_without_points">Вид</string>
+    <string name="add_request">Добавление заявки</string>
 </resources>

@@ -41,11 +41,13 @@ class AuthorizationActivity : AppCompatActivity() {
                // session.CreateSession(sessionResponse.id)
                // session.CreateLoginSession(loginResponse.users.first().id.toString(),loginResponse.users.first().role.toString())
                 //val s = session.getSessionrDetails()
+                session.CreateLoginSession(loginResponse.users.first().id.toString(),loginResponse.users.first().role.toString())
                 runOnUiThread {
 
-                    startActivity(Intent(this, UserAccountActivity::class.java).apply {
-                        putExtra("id", loginResponse.users.first().id.toInt())
-                    })
+                   // startActivity(Intent(this, UserAccountActivity::class.java).apply {
+                    //    putExtra("id", loginResponse.users.first().id.toInt())
+                    //})
+                    startActivity(Intent(this, StartActivity::class.java))
                     //session.CreateLoginSession(loginResponse.users.first().id.toString(), loginResponse.users.first().role.toString())
                     finish()
                 }

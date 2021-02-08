@@ -13,7 +13,7 @@ class RequestVolActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_request_data)
-        val userID = intent.getIntExtra("id", 0)
+        val userID = intent.getStringExtra("id")
         val requestID = intent.getIntExtra("id_req", 0)
         Thread {
             try {

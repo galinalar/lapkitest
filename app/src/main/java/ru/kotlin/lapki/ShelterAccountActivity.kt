@@ -33,8 +33,15 @@ class ShelterAccountActivity: AppCompatActivity() {
         activity_shelterac_delete.setOnClickListener {
             Delete.Del(applicationContext, "shelter", shelterID.toString())
         }
-        activity_shelterac_req.setOnClickListener {
+        activity_shelterac_req_proba.setOnClickListener {
             session.Requests("req", "shelter")
+            val id = session.getUserDetails().get(SessionManager.KEY_ID)?.toInt()
+            startActivity(Intent(this, RequestVolAddActivity::class.java).apply {
+                putExtra("id", id)
+                putExtra("id_shelter", shelterID.toInt())
+            })
+        }
+        activity_shelterac_req.setOnClickListener {
             startActivity(Intent(this, RequestsActivity::class.java).apply {
                 putExtra("mod", "shelter")
                 putExtra("id", shelterID)

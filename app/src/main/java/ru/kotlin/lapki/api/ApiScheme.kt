@@ -60,4 +60,6 @@ object ApiScheme {
 
     const val REQUEST_OWNER_ANSWER_URL = "$SERVER_URL/?op=requestowneranswer"
 
+    const val ADD_REQUEST_VOL_URL = "$SERVER_URL/?op=addreqvol"
+
 }
