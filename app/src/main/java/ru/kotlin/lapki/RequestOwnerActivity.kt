@@ -18,20 +18,24 @@ class RequestOwnerActivity : AppCompatActivity() {
             try {
                 val userResponse = UserAccountRepository.get(userID.toString())
                 if (userResponse.isError) throw IllegalAccessError() else {
-                    val format = SimpleDateFormat("dd/MM/yyy")
-                    activity_request_owner_data_user_name.setText(userResponse.user.first().user_name)
-                    activity_request_owner_data_user_surname.setText(userResponse.user.first().surname)
-                    activity_request_owner_data_user_birthday.setText(format.format(userResponse.user.first().birth_date))
-                    activity_request_owner_data_user_sex.setText(userResponse.user.first().sex)
-                    activity_request_owner_data_user_city.setText(userResponse.user.first().city)
-                    activity_request_owner_data_user_tel.setText(userResponse.user.first().telephone)
-                    activity_request_owner_data_user_email.setText(userResponse.user.first().email)
-                    activity_request_owner_data_user_describe.setText(userResponse.user.first().describe)
-                    println(userResponse.user.first().describe)
-                    println(requestID)
+                    val format = SimpleDateFormat("dd/MM/yyyy")
+                    runOnUiThread {
+                        activity_request_owner_data_user_name.setText(userResponse.user.first().user_name)
+                        activity_request_owner_data_user_surname.setText(userResponse.user.first().surname)
+                        activity_request_owner_data_user_birthday.setText(format.format(userResponse.user.first().birth_date))
+                        activity_request_owner_data_user_sex.setText(userResponse.user.first().sex)
+                        activity_request_owner_data_user_city.setText(userResponse.user.first().city)
+                        activity_request_owner_data_user_tel.setText(userResponse.user.first().telephone)
+                        activity_request_owner_data_user_email.setText(userResponse.user.first().email)
+                        activity_request_owner_data_user_describe.setText(userResponse.user.first().describe)
+                        println(userResponse.user.first().describe)
+                        println(requestID)
+                    }
                     val reqResponse = RequestRepository.VolReq(requestID.toString())
                     if (reqResponse.isError) throw IllegalAccessError() else {
-                        activity_request_owner_data_user_comment.setText(reqResponse.request.first().comment)
+                        runOnUiThread {
+                            activity_request_owner_data_user_comment.setText(reqResponse.request.first().comment)
+                        }
                     }
 
 
@@ -41,19 +45,18 @@ class RequestOwnerActivity : AppCompatActivity() {
                 if (petResponse.isError) throw IllegalAccessError() else {
                     val format = SimpleDateFormat("dd/MM/yyy")
                     println(petResponse.pet.first().role)
-
-                    activity_request_owner_data_pet_role.setText(petResponse.pet.first().role)
-                    activity_request_owner_data_pet_bd.setText(format.format(petResponse.pet.first().birth_date))
-                    activity_request_owner_data_pet_type.setText(petResponse.pet.first().type)
-                    activity_request_owner_data_pet_shelter.setText(petResponse.pet.first().shelter)
-                    activity_request_owner_data_pet_sex.setText(petResponse.pet.first().sex)
-                    activity_request_owner_data_pet_breed.setText(petResponse.pet.first().breed)
-                    activity_request_owner_data_pet_name.setText(petResponse.pet.first().pet_name)
-                    activity_request_owner_data_pet_describe.setText(petResponse.pet.first().pet_describe)
-
+                    runOnUiThread {
+                        activity_request_owner_data_pet_role.setText(petResponse.pet.first().role)
+                        activity_request_owner_data_pet_bd.setText(format.format(petResponse.pet.first().birth_date))
+                        activity_request_owner_data_pet_type.setText(petResponse.pet.first().type)
+                        activity_request_owner_data_pet_shelter.setText(petResponse.pet.first().shelter)
+                        activity_request_owner_data_pet_sex.setText(petResponse.pet.first().sex)
+                        activity_request_owner_data_pet_breed.setText(petResponse.pet.first().breed)
+                        activity_request_owner_data_pet_name.setText(petResponse.pet.first().pet_name)
+                        activity_request_owner_data_pet_describe.setText(petResponse.pet.first().pet_describe)
+                    }
 
                 }
-                finish()
 
 
             } catch (exception: Throwable) {

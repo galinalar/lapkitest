@@ -9,7 +9,7 @@ class Navigation: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigation)
-        session = SessionManager(applicationContext)
+        session = SessionManager(this)
         var user = session.getUserDetails()
         var id = user.get(SessionManager.KEY_ID)
         var role = user.get(SessionManager.KEY_ROLE)

@@ -11,24 +11,26 @@ class UserAccountActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
-        val session = SessionManager(applicationContext)
+        val session = SessionManager(this)
         session.getUserDetails().get(SessionManager.KEY_ID)
         val userID = intent.getIntExtra("id", 0)
         Thread {
             try {
                 val userResponse = UserAccountRepository.get(userID.toString())
                 if (userResponse.isError) throw IllegalAccessError() else {
-                    val format = SimpleDateFormat("dd/MM/yyy")
-                    activity_user_name.setText(userResponse.user.first().user_name)
-                    activity_user_surname.setText(userResponse.user.first().surname)
-                    activity_user_login.setText("(${userResponse.user.first().login})")
-                    activity_user_birthday.setText(format.format(userResponse.user.first().birth_date))
-                    activity_user_sex.setText(userResponse.user.first().sex)
-                    activity_user_city.setText(userResponse.user.first().city)
-                    activity_user_telephone.setText(userResponse.user.first().telephone)
-                    activity_user_email.setText(userResponse.user.first().email)
-                    activity_user_describe.setText(userResponse.user.first().describe)
-                    println(userResponse.user.first().describe)
+                    runOnUiThread {
+                        val format = SimpleDateFormat("dd/MM/yyy")
+                        activity_user_name.setText(userResponse.user.first().user_name)
+                        activity_user_surname.setText(userResponse.user.first().surname)
+                        activity_user_login.setText("(${userResponse.user.first().login})")
+                        activity_user_birthday.setText(format.format(userResponse.user.first().birth_date))
+                        activity_user_sex.setText(userResponse.user.first().sex)
+                        activity_user_city.setText(userResponse.user.first().city)
+                        activity_user_telephone.setText(userResponse.user.first().telephone)
+                        activity_user_email.setText(userResponse.user.first().email)
+                        activity_user_describe.setText(userResponse.user.first().describe)
+                        println(userResponse.user.first().describe)
+                    }
                 }
 
             } catch (exception: Throwable) {
@@ -47,7 +49,7 @@ class UserAccountActivity : AppCompatActivity() {
             })
         }
         activity_user_delete.setOnClickListener{
-            Delete.Del(applicationContext, "users",session.getUserDetails().get(SessionManager.KEY_ID)!!)
+            Delete.Del("users",session.getUserDetails().get(SessionManager.KEY_ID)!!)
         }
         activity_user_request.setOnClickListener {
             session.Requests("req", "users")

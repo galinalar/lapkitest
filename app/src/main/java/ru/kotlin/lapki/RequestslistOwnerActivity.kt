@@ -20,7 +20,7 @@ class RequestslistOwnerActivity : AppCompatActivity() {
             //  startActivity(Intent(this, StartActivity::class.java))
         }
 
-        val session = SessionManager(applicationContext)
+        val session = SessionManager(this)
         val key = intent.getStringExtra("mod")
         val id = intent.getIntExtra("id", 0)
         activity_request_list_add.setOnClickListener {
@@ -37,18 +37,10 @@ class RequestslistOwnerActivity : AppCompatActivity() {
                 if (key == "shelter") parResponse = RequestRepository.OwnerShelter(id.toString()) else {
                     if (key == "pet") parResponse = RequestRepository.OwnerPet(id.toString()) else parResponse = RequestRepository.OwnerUser(id.toString())}
                 if (parResponse.isError) throw IllegalAccessError() else {
-                    val dataID = mutableListOf<Int>()
-                    (0..parResponse.request.size - 1).forEach { i -> dataID.add(parResponse.request[i].id_req) }
-                    val dataRole = mutableListOf<String>()
-                    (0..parResponse.request.size - 1).forEach { i -> dataRole.add(parResponse.request[i].role) }
-                    val dataFIO = mutableListOf<String>()
-                    (0..parResponse.request.size - 1).forEach { i -> dataFIO.add("${parResponse.request[i].user_name} ${parResponse.request[i].user_surname}") }
-                    val dataType = mutableListOf<String>()
-                    (0..parResponse.request.size - 1).forEach { i -> dataType.add(parResponse.request[i].type_name) }
-                    val dataObj = mutableListOf<String>()
-                    (0..parResponse.request.size - 1).forEach { i -> dataObj.add("${parResponse.request[i].pet_name} из ${parResponse.request[i].shelter}") }
-                    println(dataID)
-                    activity_request_list_recyclerView.adapter = OwnerCustomRecyclerAdapter(parResponse.request, applicationContext)
+                    runOnUiThread {
+                        activity_request_list_recyclerView.adapter =
+                            OwnerCustomRecyclerAdapter(parResponse.request, this)
+                    }
                 }
 
 

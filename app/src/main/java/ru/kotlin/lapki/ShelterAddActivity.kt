@@ -39,14 +39,19 @@ class ShelterAddActivity : AppCompatActivity() {
                 println(shelterTypeResponse.isError)
                 if (shelterTypeResponse.isError) throw IllegalAccessError() else {
                     println(shelterTypeResponse.type)
-                    val ad = SpinTypeAdapter(this, shelterTypeResponse.type)
-                    val sp: Spinner = activity_addshelter_type
-                    sp.adapter = ad
+                    runOnUiThread {
+                        val ad = SpinTypeAdapter(this, shelterTypeResponse.type)
+                        val sp: Spinner = activity_addshelter_type
+                        sp.adapter = ad
+                    }
 
                 }
                 val shelterRoleResponse = ShelterRoleRepository.get()
                 if (shelterRoleResponse.isError) throw IllegalAccessError() else {
-                    activity_addshelter_role.adapter = SpinRoleAdapter(this, shelterRoleResponse.role)
+                    runOnUiThread {
+                        activity_addshelter_role.adapter =
+                            SpinRoleAdapter(this, shelterRoleResponse.role)
+                    }
                 }
 
             } catch (exception: Throwable) {

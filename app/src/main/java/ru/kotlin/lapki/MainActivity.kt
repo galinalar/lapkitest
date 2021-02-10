@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
        ac.setOnClickListener{
             startActivity(Intent(this, UserAccountActivity::class.java))
-           val session = SessionManager(applicationContext)
+           val session = SessionManager(this)
            session.CreateLoginSession("1", "1")
         }
         addsh.setOnClickListener{

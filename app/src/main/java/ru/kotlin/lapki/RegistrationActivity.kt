@@ -63,7 +63,7 @@ class RegistrationActivity : AppCompatActivity() {
                                 registrationResponse.id.toString()
                         )
                         if (sessionResponse.isError) throw IllegalAccessError()
-                        val session = SessionManager(applicationContext)
+                        val session = SessionManager(this)
                         session.CreateSession(sessionResponse.id)
                         val s = session.getSessionrDetails()
                         runOnUiThread {

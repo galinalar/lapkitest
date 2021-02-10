@@ -1,5 +1,6 @@
 package ru.kotlin.lapki.adapters
 
+import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,7 @@ import android.widget.TextView
 import ru.kotlin.lapki.api.entities.ShelterRole
 import ru.kotlin.lapki.api.entities.ShelterType
 
-class SpinRoleAdapter (val appcontext: Context, var items : List<ShelterRole>): ArrayAdapter<ShelterRole>(appcontext, android.R.layout.simple_spinner_item, items){
+class SpinRoleAdapter (val appcontext: Activity, var items : List<ShelterRole>): ArrayAdapter<ShelterRole>(appcontext, android.R.layout.simple_spinner_item, items){
 
     override fun getItem(position: Int): ShelterRole? {
         return super.getItem(position)

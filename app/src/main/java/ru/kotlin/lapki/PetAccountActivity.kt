@@ -20,12 +20,12 @@ class PetAccountActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_petac)
-        val session = SessionManager(applicationContext)
+        val session = SessionManager(this)
         val petID = intent.getIntExtra("id",0)
 
 
         activity_petac_del.setOnClickListener{
-            Delete.Del(applicationContext, "pet", petID.toString())
+            Delete.Del( "pet", petID.toString())
         }
         activity_petac_req.setOnClickListener { session.Requests("par", "pet")
             startActivity(Intent(this, RequestslistOwnerActivity::class.java).apply {
@@ -55,30 +55,30 @@ class PetAccountActivity: AppCompatActivity() {
                 val petResponse = PetAccountRepository.get(petID.toString())
                 if (petResponse.isError) throw IllegalAccessError() else {
                     val format = SimpleDateFormat("dd/MM/yyy")
-                    activity_petac_name.setText(petResponse.pet.first().pet_name)
-                    activity_petac_status.setText(petResponse.pet.first().role)
-                    activity_petac_bd.setText(format.format(petResponse.pet.first().birth_date))
-                    activity_petac_describe.setText(petResponse.pet.first().pet_describe)
-                    activity_petac_type.setText(petResponse.pet.first().type)
-                    activity_petac_shelter.setText(petResponse.pet.first().shelter)
-                    activity_petac_sex.setText(petResponse.pet.first().sex)
-                    activity_petac_breed.setText(petResponse.pet.first().breed)
-                    activity_petac_active.setText(petResponse.pet.first().active)
-                    activity_petac_size.setText(petResponse.pet.first().size.toString())
-                    activity_petac_wool.setText(petResponse.pet.first().wool)
-                    activity_petac_hypo.setText(petResponse.pet.first().hypo)
-                    activity_petac_dressir.setText(petResponse.pet.first().dressir)
-                    activity_petac_dogs.setText(petResponse.pet.first().dogs)
-                    activity_petac_animal.setText(petResponse.pet.first().animal)
-                    activity_petac_child.setText(petResponse.pet.first().child)
-                    activity_petac_children.setText(petResponse.pet.first().children)
-                    activity_petac_teens.setText(petResponse.pet.first().teens)
-                    activity_petac_ills.setText(petResponse.pet.first().ills)
-                    activity_petac_sounds.setText(petResponse.pet.first().sounds)
-                    activity_petac_talk.setText(petResponse.pet.first().talkative)
+                    runOnUiThread {
+                        activity_petac_name.setText(petResponse.pet.first().pet_name)
+                        activity_petac_status.setText(petResponse.pet.first().role)
+                        activity_petac_bd.setText(format.format(petResponse.pet.first().birth_date))
+                        activity_petac_describe.setText(petResponse.pet.first().pet_describe)
+                        activity_petac_type.setText(petResponse.pet.first().type)
+                        activity_petac_shelter.setText(petResponse.pet.first().shelter)
+                        activity_petac_sex.setText(petResponse.pet.first().sex)
+                        activity_petac_breed.setText(petResponse.pet.first().breed)
+                        activity_petac_active.setText(petResponse.pet.first().active)
+                        activity_petac_size.setText(petResponse.pet.first().size.toString())
+                        activity_petac_wool.setText(petResponse.pet.first().wool)
+                        activity_petac_hypo.setText(petResponse.pet.first().hypo)
+                        activity_petac_dressir.setText(petResponse.pet.first().dressir)
+                        activity_petac_dogs.setText(petResponse.pet.first().dogs)
+                        activity_petac_animal.setText(petResponse.pet.first().animal)
+                        activity_petac_child.setText(petResponse.pet.first().child)
+                        activity_petac_children.setText(petResponse.pet.first().children)
+                        activity_petac_teens.setText(petResponse.pet.first().teens)
+                        activity_petac_ills.setText(petResponse.pet.first().ills)
+                        activity_petac_sounds.setText(petResponse.pet.first().sounds)
+                        activity_petac_talk.setText(petResponse.pet.first().talkative)
 
-                    activity_petac_rolid.setText(petResponse.pet.first().id_role)
-                    activity_petac_shelid.setText(petResponse.pet.first().id_shelter)
+                    }
                 }
                 } catch (exception: Throwable) {
                 runOnUiThread {

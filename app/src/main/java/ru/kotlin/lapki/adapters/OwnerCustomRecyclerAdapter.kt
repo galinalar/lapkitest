@@ -1,6 +1,7 @@
 package ru.kotlin.lapki.adapters
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -16,7 +17,7 @@ import ru.kotlin.lapki.RequestOwnerActivity
 import ru.kotlin.lapki.RequestVolActivity
 import ru.kotlin.lapki.api.entities.RequestOwner
 
-class OwnerCustomRecyclerAdapter (private val valueReq: List<RequestOwner>, val context: Context) :
+class OwnerCustomRecyclerAdapter (private val valueReq: List<RequestOwner>, val context: Activity) :
         RecyclerView.Adapter<OwnerCustomRecyclerAdapter.MyViewHolder>() {
 
 
@@ -38,11 +39,11 @@ class OwnerCustomRecyclerAdapter (private val valueReq: List<RequestOwner>, val 
 
         holder.im?.setOnClickListener {
             println(valueReq[position].id_req)
-            ContextCompat.startActivity(context, Intent(context, RequestOwnerActivity::class.java).apply {
+            context.startActivity( Intent(context, RequestOwnerActivity::class.java).apply {
             putExtra("id", valueReq[position].id_user)
             putExtra("id_req", valueReq[position].id_req)
             putExtra("id_pet", valueReq[position].id_pet)
-        }.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK), null)
+        })
 
         }
     }

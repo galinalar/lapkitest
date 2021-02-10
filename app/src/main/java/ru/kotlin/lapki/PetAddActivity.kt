@@ -48,14 +48,18 @@ class PetAddActivity : AppCompatActivity() {
                 println("Hello")
                 val petShelterResponse = ShelterListRepository.shelters()
                 if (petShelterResponse.isError) throw IllegalAccessError() else {
-                    val ad = SpinShelterAdapter(this, petShelterResponse.list)
-                    val sp: Spinner = activity_addpet_shelter
-                    sp.adapter = ad
+                    runOnUiThread {
+                        val ad = SpinShelterAdapter(this, petShelterResponse.list)
+                        val sp: Spinner = activity_addpet_shelter
+                        sp.adapter = ad
+                    }
 
                 }
                 val petRoleResponse = PetRoleRepository.get()
                 if (petRoleResponse.isError) throw IllegalAccessError() else {
-                    activity_addpet_role.adapter = SpinRoleAdapter(this, petRoleResponse.role)
+                    runOnUiThread {
+                        activity_addpet_role.adapter = SpinRoleAdapter(this, petRoleResponse.role)
+                    }
                 }
 
             } catch (exception: Throwable) {

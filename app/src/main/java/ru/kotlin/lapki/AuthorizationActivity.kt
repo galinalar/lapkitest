@@ -37,7 +37,7 @@ class AuthorizationActivity : AppCompatActivity() {
                         loginResponse.users.first().id.toString()
                 )
                 if (sessionResponse.isError) throw IllegalAccessError()
-                val session = SessionManager(applicationContext)
+                val session = SessionManager(this)
                // session.CreateSession(sessionResponse.id)
                // session.CreateLoginSession(loginResponse.users.first().id.toString(),loginResponse.users.first().role.toString())
                 //val s = session.getSessionrDetails()

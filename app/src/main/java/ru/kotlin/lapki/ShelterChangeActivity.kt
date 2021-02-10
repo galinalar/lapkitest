@@ -41,38 +41,47 @@ class ShelterChangeActivity : AppCompatActivity() {
                 println(shelterTypeResponse.isError)
                 if (shelterTypeResponse.isError) throw IllegalAccessError() else {
                     println(shelterTypeResponse.type)
-                    val ad = SpinTypeAdapter(this, shelterTypeResponse.type)
-                    val sp: Spinner = activity_addshelter_type
-                    sp.adapter = ad
+                    runOnUiThread {
+                        val ad = SpinTypeAdapter(this, shelterTypeResponse.type)
+                        val sp: Spinner = activity_addshelter_type
+                        sp.adapter = ad
+                    }
 
                 }
                 val shelterRoleResponse = ShelterRoleRepository.get()
                 if (shelterRoleResponse.isError) throw IllegalAccessError() else {
-                    activity_addshelter_role.adapter = SpinRoleAdapter(this, shelterRoleResponse.role)
+                    runOnUiThread {
+                        activity_addshelter_role.adapter =
+                            SpinRoleAdapter(this, shelterRoleResponse.role)
+                    }
                 }
                 val shelterResponse = ShelterAccountRepository.get(shelterID.toString())
                 println(shelterResponse.shelter.first().shelter_name)
                 if (shelterResponse.isError) throw IllegalAccessError() else {
-                    activity_addshelter_name.setText(shelterResponse.shelter.first().shelter_name)
-                    val stringArray: Array<String> = shelterResponse.shelter.first().birth_date.toString().split("-".toRegex()).toTypedArray()
-                    println(shelterResponse.shelter.first().city)
-                    shelterResponse.shelter.first().birth_date
+                    runOnUiThread {
+                        activity_addshelter_name.setText(shelterResponse.shelter.first().shelter_name)
+                        val stringArray: Array<String> =
+                            shelterResponse.shelter.first().birth_date.toString()
+                                .split("-".toRegex()).toTypedArray()
+                        println(shelterResponse.shelter.first().city)
+                        shelterResponse.shelter.first().birth_date
 
-                    println(shelterResponse.shelter.first().birth_date.month)
-                    println(shelterResponse.shelter.first().birth_date.date)
-                    val format = SimpleDateFormat("yyyy")
-                    println(format.format(shelterResponse.shelter.first().birth_date))
+                        println(shelterResponse.shelter.first().birth_date.month)
+                        println(shelterResponse.shelter.first().birth_date.date)
+                        val format = SimpleDateFormat("yyyy")
+                        println(format.format(shelterResponse.shelter.first().birth_date))
 
-                    println(shelterTypeResponse.type.indexOfFirst { it.id_type == shelterResponse.shelter.first().type_id})
-                    activity_addshelter_day.setSelection(shelterResponse.shelter.first().birth_date.date-1)
-                    activity_addshelter_month.setSelection(shelterResponse.shelter.first().birth_date.month)
-                    activity_addshelter_year.setText(format.format(shelterResponse.shelter.first().birth_date))
-                    activity_addshelter_city.setText(shelterResponse.shelter.first().city)
-                    activity_addshelter_describe.setText(shelterResponse.shelter.first().describe)
-                    println(shelterResponse.shelter.first().describe)
-                    activity_addshelter_type.setSelection(shelterTypeResponse.type.indexOfFirst { it.id_type == shelterResponse.shelter.first().type_id})
-                    activity_addshelter_role.setSelection(shelterRoleResponse.role.indexOfFirst { it.id_role == shelterResponse.shelter.first().role})
-                                   }
+                        println(shelterTypeResponse.type.indexOfFirst { it.id_type == shelterResponse.shelter.first().type_id })
+                        activity_addshelter_day.setSelection(shelterResponse.shelter.first().birth_date.date - 1)
+                        activity_addshelter_month.setSelection(shelterResponse.shelter.first().birth_date.month)
+                        activity_addshelter_year.setText(format.format(shelterResponse.shelter.first().birth_date))
+                        activity_addshelter_city.setText(shelterResponse.shelter.first().city)
+                        activity_addshelter_describe.setText(shelterResponse.shelter.first().describe)
+                        println(shelterResponse.shelter.first().describe)
+                        activity_addshelter_type.setSelection(shelterTypeResponse.type.indexOfFirst { it.id_type == shelterResponse.shelter.first().type_id })
+                        activity_addshelter_role.setSelection(shelterRoleResponse.role.indexOfFirst { it.id_role == shelterResponse.shelter.first().role })
+                    }
+                }
 
             } catch (exception: Throwable) {
                 runOnUiThread {

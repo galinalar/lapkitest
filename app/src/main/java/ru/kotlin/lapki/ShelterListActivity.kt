@@ -21,7 +21,7 @@ class ShelterListActivity: AppCompatActivity() {
             startActivity(Intent(this, StartActivity::class.java))
         }
 
-        val session = SessionManager(applicationContext)
+        val session = SessionManager(this)
         activity_list_add.setOnClickListener {
             session.Mod("add")
             startActivity(Intent(this, ShelterAddActivity::class.java))

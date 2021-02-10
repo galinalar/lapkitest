@@ -55,56 +55,63 @@ class PetChangeActivity: AppCompatActivity() {
             try {
                 val petShelterResponse = ShelterListRepository.shelters()
                 if (petShelterResponse.isError) throw IllegalAccessError() else {
-                    val ad = SpinShelterAdapter(this, petShelterResponse.list)
-                    val sp: Spinner = activity_addpet_shelter
-                    sp.adapter = ad
-
+                    runOnUiThread {
+                        val ad = SpinShelterAdapter(this, petShelterResponse.list)
+                        val sp: Spinner = activity_addpet_shelter
+                        sp.adapter = ad
+                    }
                 }
                 val petRoleResponse = PetRoleRepository.get()
                 if (petRoleResponse.isError) throw IllegalAccessError() else {
-                    activity_addpet_role.adapter = SpinRoleAdapter(this, petRoleResponse.role)
+                    runOnUiThread {
+                        activity_addpet_role.adapter = SpinRoleAdapter(this, petRoleResponse.role)
+                    }
                 }
                 val petResponse = PetAccountRepository.get(petID.toString())
                 if (petResponse.isError) throw IllegalAccessError() else {
-                   activity_addpet_shelter.setSelection(petShelterResponse.list.indexOfFirst { it.id_shelter == petResponse.pet.first().id_shelter})
-                    activity_addpet_name.setText(petResponse.pet.first().pet_name)
-                    val format = SimpleDateFormat("yyyy")
-                    activity_addpet_day.setSelection(petResponse.pet.first().birth_date.date-1)
-                    activity_addpet_month.setSelection(petResponse.pet.first().birth_date.month)
-                    activity_addpet_year.setText(format.format(petResponse.pet.first().birth_date))
+                    runOnUiThread {
+                        activity_addpet_shelter.setSelection(petShelterResponse.list.indexOfFirst { it.id_shelter == petResponse.pet.first().id_shelter })
+                        activity_addpet_name.setText(petResponse.pet.first().pet_name)
+                        val format = SimpleDateFormat("yyyy")
+                        activity_addpet_day.setSelection(petResponse.pet.first().birth_date.date - 1)
+                        activity_addpet_month.setSelection(petResponse.pet.first().birth_date.month)
+                        activity_addpet_year.setText(format.format(petResponse.pet.first().birth_date))
 
-                    println(petResponse.pet.first().breed)
-                    activity_addpet_breed.setText(petResponse.pet.first().breed)
-                    activity_addpet_role.setSelection(petRoleResponse.role.indexOfFirst { it.id_role == petResponse.pet.first().id_role})
-                    if (petResponse.pet.first().sex=="Ж") activity_addpet_women.setChecked(true) else activity_addpet_men.setChecked(true)
-                    activity_addpet_active.setSelection(checkActhypotalk(petResponse.pet.first().active))
-                    activity_addpet_size.setText(petResponse.pet.first().size.toString())
-                    var ww = -1
-                    for (i in 0..woo.size-1){
-                        if (woo[i]==petResponse.pet.first().wool){
-                           ww = i
-                            break
-                         }
-                    }
-                    activity_addpet_wool.setSelection(ww)
-                    activity_addpet_hypo.setSelection(checkActhypotalk(petResponse.pet.first().hypo))
-                    ww = -1
-                    for (i in 0..dr.size-1){
-                        if (dr[i]==petResponse.pet.first().dressir){
-                            ww = i
-                            break
+                        println(petResponse.pet.first().breed)
+                        activity_addpet_breed.setText(petResponse.pet.first().breed)
+                        activity_addpet_role.setSelection(petRoleResponse.role.indexOfFirst { it.id_role == petResponse.pet.first().id_role })
+                        if (petResponse.pet.first().sex == "Ж") activity_addpet_women.setChecked(
+                            true
+                        ) else activity_addpet_men.setChecked(true)
+                        activity_addpet_active.setSelection(checkActhypotalk(petResponse.pet.first().active))
+                        activity_addpet_size.setText(petResponse.pet.first().size.toString())
+                        var ww = -1
+                        for (i in 0..woo.size - 1) {
+                            if (woo[i] == petResponse.pet.first().wool) {
+                                ww = i
+                                break
+                            }
                         }
+                        activity_addpet_wool.setSelection(ww)
+                        activity_addpet_hypo.setSelection(checkActhypotalk(petResponse.pet.first().hypo))
+                        ww = -1
+                        for (i in 0..dr.size - 1) {
+                            if (dr[i] == petResponse.pet.first().dressir) {
+                                ww = i
+                                break
+                            }
+                        }
+                        activity_addpet_dressir.setSelection(ww)
+                        activity_addpet_dogs.setSelection(checkRel(petResponse.pet.first().dogs))
+                        activity_addpet_animal.setSelection(checkRel(petResponse.pet.first().animal))
+                        activity_addpet_child.setSelection(checkRel(petResponse.pet.first().child))
+                        activity_addpet_children.setSelection(checkRel(petResponse.pet.first().children))
+                        activity_addpet_teens.setSelection(checkRel(petResponse.pet.first().teens))
+                        activity_addpet_ills.setText(petResponse.pet.first().ills.toString())
+                        activity_addpet_sounds.setSelection(checkRel(petResponse.pet.first().sounds))
+                        activity_addpet_talk.setSelection(checkActhypotalk(petResponse.pet.first().talkative))
+                        activity_addpet_describe.setText(petResponse.pet.first().pet_describe)//строка все ломает
                     }
-                    activity_addpet_dressir.setSelection(ww)
-                    activity_addpet_dogs.setSelection(checkRel(petResponse.pet.first().dogs))
-                    activity_addpet_animal.setSelection(checkRel(petResponse.pet.first().animal))
-                    activity_addpet_child.setSelection(checkRel(petResponse.pet.first().child))
-                    activity_addpet_children.setSelection(checkRel(petResponse.pet.first().children))
-                    activity_addpet_teens.setSelection(checkRel(petResponse.pet.first().teens))
-                    activity_addpet_ills.setText(petResponse.pet.first().ills.toString())
-                    activity_addpet_sounds.setSelection(checkRel(petResponse.pet.first().sounds))
-                    activity_addpet_talk.setSelection(checkActhypotalk(petResponse.pet.first().talkative))
-                    activity_addpet_describe.setText(petResponse.pet.first().pet_describe)//строка все ломает
 
                 }
 

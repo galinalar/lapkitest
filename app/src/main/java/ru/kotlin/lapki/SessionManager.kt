@@ -1,12 +1,13 @@
 package ru.kotlin.lapki
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import com.google.gson.Gson
 
 class SessionManager(
-        val context: Context
+        val context: Activity
 ) {
     val pref: SharedPreferences
     val editor: SharedPreferences.Editor

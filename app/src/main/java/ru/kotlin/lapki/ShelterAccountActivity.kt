@@ -11,11 +11,9 @@ class ShelterAccountActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shelterac)
-        val session = SessionManager(applicationContext)
+        val session = SessionManager(this)
         val shelterID = intent.getIntExtra("id", 0)
-        if (shelterID != null) {
-            println(shelterID)
-        }
+
 
         activity_shelterac_pet.setOnClickListener {
             session.StartP("petshelter")
@@ -31,7 +29,7 @@ class ShelterAccountActivity: AppCompatActivity() {
             })
         }
         activity_shelterac_delete.setOnClickListener {
-            Delete.Del(applicationContext, "shelter", shelterID.toString())
+            Delete.Del( "shelter", shelterID.toString())
         }
         activity_shelterac_req_proba.setOnClickListener {
             session.Requests("req", "shelter")
@@ -52,13 +50,15 @@ class ShelterAccountActivity: AppCompatActivity() {
                 val shelterResponse = ShelterAccountRepository.get(shelterID.toString())
                 if (shelterResponse.isError) throw IllegalAccessError() else {
                     val format = SimpleDateFormat("dd/MM/yyy")
-                    activity_shelterac_name.setText(shelterResponse.shelter.first().shelter_name)
-                    activity_shelterac_bd.setText(format.format(shelterResponse.shelter.first().birth_date))
-                    activity_shelterac_city.setText(shelterResponse.shelter.first().city)
-                    activity_shelterac_describe.setText(shelterResponse.shelter.first().describe)
-                    println(shelterResponse.shelter.first().describe)
-                    activity_shelterac_type.setText(shelterResponse.shelter.first().type)
-                                    }
+                    runOnUiThread {
+                        activity_shelterac_name.setText(shelterResponse.shelter.first().shelter_name)
+                        activity_shelterac_bd.setText(format.format(shelterResponse.shelter.first().birth_date))
+                        activity_shelterac_city.setText(shelterResponse.shelter.first().city)
+                        activity_shelterac_describe.setText(shelterResponse.shelter.first().describe)
+                        println(shelterResponse.shelter.first().describe)
+                        activity_shelterac_type.setText(shelterResponse.shelter.first().type)
+                    }
+                }
 
             } catch (exception: Throwable) {
                 runOnUiThread {

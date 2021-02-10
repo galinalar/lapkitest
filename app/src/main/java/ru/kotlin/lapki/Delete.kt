@@ -1,5 +1,6 @@
 package ru.kotlin.lapki
 
+import android.app.Activity
 import android.content.Context
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_shelterac.*
@@ -10,7 +11,7 @@ import java.io.IOException
 
 object Delete {
     var okHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient()
-    fun Del(context: Context, obj: String, id: String){
+    fun Del( obj: String, id: String){
 
 
         var form = FormBody.Builder().add("obj", obj)

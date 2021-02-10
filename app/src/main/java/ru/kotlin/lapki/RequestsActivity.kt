@@ -10,7 +10,7 @@ class RequestsActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_request)
-        session = SessionManager(applicationContext)
+        session = SessionManager(this)
         val key = intent.getStringExtra("mod")
         val ID = intent.getIntExtra("id", 0)
         activity_request_volonteer.setOnClickListener{

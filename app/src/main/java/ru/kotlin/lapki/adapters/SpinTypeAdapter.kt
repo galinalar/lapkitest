@@ -1,5 +1,6 @@
 package ru.kotlin.lapki.adapters
 
+import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import ru.kotlin.lapki.api.entities.ShelterType
 
-class SpinTypeAdapter(val appcontext: Context, var items : List<ShelterType>): ArrayAdapter<ShelterType>(appcontext, android.R.layout.simple_spinner_item, items){
+class SpinTypeAdapter(val appcontext: Activity, var items : List<ShelterType>): ArrayAdapter<ShelterType>(appcontext, android.R.layout.simple_spinner_item, items){
 
 
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {

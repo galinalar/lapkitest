@@ -30,41 +30,47 @@ class UserModifyActivity : AppCompatActivity() {
             try {
                 val userShelterResponse = ShelterListRepository.shelters()
                 if (userShelterResponse.isError) throw IllegalAccessError() else {
-                    val ad = SpinShelterAdapter(this, userShelterResponse.list)
-                    val sp: Spinner = activity_chuser_shelter
-                    sp.adapter = ad
-
+                    runOnUiThread {
+                        val ad = SpinShelterAdapter(this, userShelterResponse.list)
+                        val sp: Spinner = activity_chuser_shelter
+                        sp.adapter = ad
+                    }
                 }
                 val userRoleResponse = UserRoleRepository.get()
                 println(userRoleResponse.role)
                 if (userRoleResponse.isError) throw IllegalAccessError() else {
-                    activity_chuser_role.adapter = SpinRoleAdapter(this, userRoleResponse.role)
+                    runOnUiThread {
+                        activity_chuser_role.adapter = SpinRoleAdapter(this, userRoleResponse.role)
+                    }
                 }
                 println(userRoleResponse.role[2].role)
                 val userResponse = UserAccountRepository.get(userID.toString())
                 if (userResponse.isError) throw IllegalAccessError() else {
-
-                    activity_chuser_name.setText(userResponse.user.first().user_name)
-                    activity_chuser_surname.setText(userResponse.user.first().surname)
-                    activity_chuser_login.setText(userResponse.user.first().login)
-                    val format = SimpleDateFormat("yyyy")
-                    activity_chuser_day.setSelection(userResponse.user.first().birth_date.date-1)
-                    activity_chuser_month.setSelection(userResponse.user.first().birth_date.month)
-                    activity_chuser_year.setText(format.format(userResponse.user.first().birth_date))
-                    if (userResponse.user.first().sex=="Ж") activity_chuser_women.setChecked(true) else activity_chuser_men.setChecked(true)
-                    activity_chuser_pass.setText(Cryption().decryptWithAES(userResponse.user.first().pass))
-                    activity_chuser_city.setText(userResponse.user.first().city)
-                    activity_chuser_telephone.setText(userResponse.user.first().telephone)
-                    activity_chuser_email.setText(userResponse.user.first().email)
-                    activity_chuser_role.setSelection(userRoleResponse.role.indexOfFirst { it.id_role == userResponse.user.first().id_role})
-                    if (userResponse.user.first().id_role==2){
-                        val userAdminResponse = ShelterAdminRepository.get(userID.toString())
-                        if (userAdminResponse.isError) throw IllegalAccessError() else {
-                            activity_chuser_shelter.setSelection(userShelterResponse.list.indexOfFirst { it.id_shelter == userAdminResponse.admin.first().id_shelter})
+                    runOnUiThread {
+                        activity_chuser_name.setText(userResponse.user.first().user_name)
+                        activity_chuser_surname.setText(userResponse.user.first().surname)
+                        activity_chuser_login.setText(userResponse.user.first().login)
+                        val format = SimpleDateFormat("yyyy")
+                        activity_chuser_day.setSelection(userResponse.user.first().birth_date.date - 1)
+                        activity_chuser_month.setSelection(userResponse.user.first().birth_date.month)
+                        activity_chuser_year.setText(format.format(userResponse.user.first().birth_date))
+                        if (userResponse.user.first().sex == "Ж") activity_chuser_women.setChecked(
+                            true
+                        ) else activity_chuser_men.setChecked(true)
+                        activity_chuser_pass.setText(Cryption().decryptWithAES(userResponse.user.first().pass))
+                        activity_chuser_city.setText(userResponse.user.first().city)
+                        activity_chuser_telephone.setText(userResponse.user.first().telephone)
+                        activity_chuser_email.setText(userResponse.user.first().email)
+                        activity_chuser_role.setSelection(userRoleResponse.role.indexOfFirst { it.id_role == userResponse.user.first().id_role })
+                        if (userResponse.user.first().id_role == 2) {
+                            val userAdminResponse = ShelterAdminRepository.get(userID.toString())
+                            if (userAdminResponse.isError) throw IllegalAccessError() else {
+                                activity_chuser_shelter.setSelection(userShelterResponse.list.indexOfFirst { it.id_shelter == userAdminResponse.admin.first().id_shelter })
+                            }
                         }
+                        activity_chuser_describe.setText(userResponse.user.first().describe)
+                        println(userResponse.user.first().describe)
                     }
-                    activity_chuser_describe.setText(userResponse.user.first().describe)
-                    println(userResponse.user.first().describe)
                 }
 
             } catch (exception: Throwable) {
