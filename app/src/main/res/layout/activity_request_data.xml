@@ -274,6 +274,12 @@
                 android:text="@string/reject" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/activity_request_data_change"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/change_data" />
+
     </LinearLayout>
 
     <Button

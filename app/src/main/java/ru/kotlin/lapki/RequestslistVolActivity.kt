@@ -23,30 +23,34 @@ class RequestslistVolActivity : AppCompatActivity() {
         activity_request_list_return.setOnClickListener {
           //  startActivity(Intent(this, StartActivity::class.java))
         }
-
-        val session = SessionManager(applicationContext)
-        val key = intent.getStringExtra("mod")
-        val id = intent.getIntExtra("id", 0)
         activity_request_list_add.setOnClickListener {
            // session.Mod("add")
             //startActivity(Intent(this, PetAddActivity::class.java))
         }
         //if (session.getUserDetails().get(SessionManager.KEY_ROLE) == "1") activity_list_add.visibility = View.VISIBLE
         activity_request_list_head.text = "Заявки волонтеров"
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val key = intent.getStringExtra("mod")
+        val id = intent.getIntExtra("id", 0)
         Thread {
             try {
                 val volResponse: RequestVolResponse
                 if (key == "shelter") volResponse = RequestRepository.VolShelter(id.toString()) else volResponse = RequestRepository.VolUser(id.toString())
-                if (volResponse.isError) throw IllegalAccessError() else
-                {
-                    activity_request_list_recyclerView.adapter = VolCustomRecyclerAdapter(volResponse.request, applicationContext)
+                if (volResponse.isError) {
+                    throw IllegalAccessError()
+                } else {
+                    runOnUiThread {
+                        activity_request_list_recyclerView.adapter = VolCustomRecyclerAdapter(volResponse.request, this)
+                    }
                 }
-
-
             } catch (exception: Throwable) {
                 runOnUiThread {
                     val err = when (exception) {
-                        is IllegalAccessError -> "Неверный логин или пароль, мудила"
+                        is IllegalAccessError -> "Мудила, мразь, говно, пидор, сука, блядина"
                         else -> "Все наебнулосьReqVol"
                     }
                 }

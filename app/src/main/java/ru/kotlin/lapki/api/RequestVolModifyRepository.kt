@@ -25,4 +25,20 @@ object RequestVolModifyRepository {
                     ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
                     ModifyResponse::class.java
             )
+    fun change(id_req: String, id_status: String, comment: String): ModifyResponse =
+            Gson().fromJson(
+                    okHttpClient.newCall(
+                            Request.Builder()
+                                    .url(ApiScheme.CHANGE_REQUEST_VOL_URL)
+                                    .post(
+                                            FormBody.Builder().apply {
+                                                add("idreq", id_req)
+                                                add("comment",comment)
+                                                add("idstatus", id_status)
+                                            }.build()
+                                    )
+                                    .build()
+                    ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
+                    ModifyResponse::class.java
+            )
 }

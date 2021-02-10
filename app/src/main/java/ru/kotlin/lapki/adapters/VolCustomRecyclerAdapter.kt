@@ -1,6 +1,7 @@
 package ru.kotlin.lapki.adapters
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -18,14 +19,15 @@ import ru.kotlin.lapki.R
 import ru.kotlin.lapki.RequestVolActivity
 import ru.kotlin.lapki.api.entities.RequestVol
 
-class VolCustomRecyclerAdapter(private val valueReq: List<RequestVol>, val context: Context) :
-        RecyclerView.Adapter<VolCustomRecyclerAdapter.MyViewHolder>() {
+class VolCustomRecyclerAdapter(private val valueReq: List<RequestVol>, val context: Activity) :
+    RecyclerView.Adapter<VolCustomRecyclerAdapter.MyViewHolder>() {
 
 
     override fun getItemCount() = valueReq.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent?.context).inflate(R.layout.request_list_item, parent, false)
+        val itemView =
+            LayoutInflater.from(parent?.context).inflate(R.layout.request_list_item, parent, false)
         return MyViewHolder(itemView)
     }
 
@@ -40,13 +42,13 @@ class VolCustomRecyclerAdapter(private val valueReq: List<RequestVol>, val conte
 
         holder.layout?.setOnClickListener {
             println(valueReq[position].id_req)
-            ContextCompat.startActivity(context, Intent(context, RequestVolActivity::class.java).apply {
+            context.startActivity(Intent(context, RequestVolActivity::class.java).apply {
                 putExtra("id", valueReq[position].id_user)
                 putExtra("id_req", valueReq[position].id_req)
-            }.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK), null)
-
+            })
         }
     }
+
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var layout: LinearLayout? = null
         var id: TextView? = null

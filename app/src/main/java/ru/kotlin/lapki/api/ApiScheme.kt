@@ -62,4 +62,8 @@ object ApiScheme {
 
     const val ADD_REQUEST_VOL_URL = "$SERVER_URL/?op=addreqvol"
 
+    const val CHANGE_REQUEST_VOL_URL = "$SERVER_URL/?op=chreqvol"
+
+    const val GET_REQUEST_VOL_ROLE_URL = "$SERVER_URL/?op=getrolereq"
+
 }
