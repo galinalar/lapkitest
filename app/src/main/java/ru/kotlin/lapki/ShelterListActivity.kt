@@ -28,6 +28,10 @@ class ShelterListActivity: AppCompatActivity() {
         }
         //  if (session.getUserDetails().get(SessionManager.KEY_ROLE) == "1") activity_list_add.visibility = View.VISIBLE
         activity_list_head.text = "Приюты"
+
+    }
+    override fun onResume() {
+        super.onResume()
         Thread {
             try {
                 val shelterResponse = ShelterListRepository.shelters()

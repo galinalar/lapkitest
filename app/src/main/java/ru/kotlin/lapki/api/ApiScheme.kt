@@ -2,7 +2,7 @@ package ru.kotlin.lapki.api
 
 object ApiScheme {
 
-    private const val SERVER_URL = "https://192.168.0.76/lapki/v1"
+    private const val SERVER_URL = "https://192.168.0.106/lapki/v1"
 
     const val GET_USERS_URL = "$SERVER_URL/?op=getusers"
 

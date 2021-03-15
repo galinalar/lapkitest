@@ -31,6 +31,13 @@ class RequestslistOwnerActivity : AppCompatActivity() {
         activity_request_list_head.text = "Заявки от родителей"
         println(key)
         println(id)
+
+
+    }
+    override fun onResume() {
+        super.onResume()
+        val key = intent.getStringExtra("mod")
+        val id = intent.getIntExtra("id", 0)
         Thread {
             try {
                 val parResponse: RequestOwnerResponse
