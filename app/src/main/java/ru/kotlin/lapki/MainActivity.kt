@@ -4,11 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
+import android.view.Gravity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.squareup.picasso.Picasso
 
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.ac
-import kotlinx.android.synthetic.main.activity_main.shelter
+import kotlinx.android.synthetic.main.navigation.*
 import ru.kotlin.lapki.api.entities.UserID
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +19,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         //Picasso.with(this).load("https://rozetked.me/images/uploads/dwoilp3BVjlE.jpg").fit().centerCrop().into(imageView2)
         Picasso.get().load("https://rozetked.me/images/uploads/dwoilp3BVjlE.jpg").into(imageView2);
-
+        imageView.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START);
+        }
         activity_main_auto.setOnClickListener{
             startActivity(Intent(this, AuthorizationActivity::class.java))
         }
@@ -49,3 +53,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
+
+
