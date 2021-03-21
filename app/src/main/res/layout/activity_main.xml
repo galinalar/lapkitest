@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:fitsSystemWindows="true"
         android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary">
+        android:background="@drawable/custom_button">
 
         <ImageView
             android:id="@+id/imageView"

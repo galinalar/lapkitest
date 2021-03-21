@@ -9,15 +9,30 @@
         android:background="@color/background"
         android:orientation="vertical"
         android:gravity="center">
+<androidx.appcompat.widget.AppCompatButton
+    android:layout_width="298dp"
+    android:layout_height="wrap_content"
+    style="@style/CustomButton"
 
+    android:text="Приют"
+    android:textColor="@color/black"
+    android:textColorHint="@color/black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.471"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.414" >
+
+</androidx.appcompat.widget.AppCompatButton>
         <Button
             android:id="@+id/shelter"
             android:layout_width="298dp"
             android:layout_height="wrap_content"
+style="@style/CustomButton"
+            android:background="@drawable/custom_button"
 
             android:text="Приют"
-            android:background="@drawable/custom_button"
-            android:backgroundTint="@color/button"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -25,8 +40,7 @@
             app:layout_constraintHorizontal_bias="0.471"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.414"
-            />
+            app:layout_constraintVertical_bias="0.414" />
         <Button
             android:id="@+id/pet"
             android:layout_width="298dp"
