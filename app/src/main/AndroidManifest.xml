@@ -33,6 +33,8 @@
         <activity android:name=".RequestVolChangeActivity" />
         <activity android:name=".RequestslistOwnerActivity" />
         <activity android:name=".RequestOwnerActivity" />
+        <activity android:name=".TestingActivity" />
+        <activity android:name=".TestResultActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

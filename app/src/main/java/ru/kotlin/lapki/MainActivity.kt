@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.Gravity
+import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.squareup.picasso.Picasso
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.navigation.*
+import ru.kotlin.lapki.api.TimeRepository
 import ru.kotlin.lapki.api.entities.UserID
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +23,13 @@ class MainActivity : AppCompatActivity() {
         Picasso.get().load("https://rozetked.me/images/uploads/dwoilp3BVjlE.jpg").into(imageView2);
         imageView.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START);
+        }
+        imageView2.setOnClickListener {
+            val text = "Пора покормить кота!"
+            val duration = Toast.LENGTH_SHORT
+
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
         }
         activity_main_auto.setOnClickListener{
             startActivity(Intent(this, AuthorizationActivity::class.java))
@@ -49,6 +58,12 @@ class MainActivity : AppCompatActivity() {
         }
         addpet.setOnClickListener{
             startActivity(Intent(this, PetAddActivity::class.java))
+        }
+        test.setOnClickListener{
+            startActivity(Intent(this, TestingActivity::class.java))
+        }
+        testres.setOnClickListener{
+            startActivity(Intent(this, TestResultActivity::class.java))
         }
 
     }

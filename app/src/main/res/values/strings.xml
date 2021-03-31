@@ -119,4 +119,6 @@
     <string name="request_owner">Заявка на опекунство</string>
     <string name="pet_type_without_points">Вид</string>
     <string name="add_request">Добавление заявки</string>
+    <string name="question">Вопрос: </string>
+    <string name="testing">Тестирование</string>
 </resources>

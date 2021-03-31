@@ -66,4 +66,14 @@ object ApiScheme {
 
     const val GET_REQUEST_VOL_ROLE_URL = "$SERVER_URL/?op=getrolereq"
 
+    const val GET_QUESTION_URL = "$SERVER_URL/?op=getquestion"
+
+    const val GET_ANSWER_URL = "$SERVER_URL/?op=getanswer"
+
+    const val GET_TIME_URL = "$SERVER_URL/?op=gettime"
+
+    const val SET_TIME_URL = "$SERVER_URL/?op=settime"
+
+    const val SET_ANSWER_URL = "$SERVER_URL/?op=setanswer"
+
 }
