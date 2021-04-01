@@ -34,6 +34,7 @@
         <activity android:name=".RequestslistOwnerActivity" />
         <activity android:name=".RequestOwnerActivity" />
         <activity android:name=".TestingActivity" />
+        <activity android:name=".TestingPetActivity" />
         <activity android:name=".TestResultActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

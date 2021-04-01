@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_petac.*
 import kotlinx.android.synthetic.main.activity_shelterac.*
+import kotlinx.android.synthetic.main.activity_user.*
 import okhttp3.*
 import org.json.JSONObject
 import ru.kotlin.lapki.api.PetAccountRepository
 import ru.kotlin.lapki.api.ShelterAccountRepository
+import ru.kotlin.lapki.api.TimeRepository
 import ru.kotlin.lapki.api.entities.RequestOwner
 import ru.kotlin.lapki.api.entities.ShelterAccount
 import java.io.IOException
@@ -50,12 +52,16 @@ class PetAccountActivity: AppCompatActivity() {
         activity_petac_return_shelter.setOnClickListener {
             startActivity(Intent(this,ShelterAccount::class.java))
         }
+        var text =""
         Thread {
             try {
                 val petResponse = PetAccountRepository.get(petID.toString())
                 if (petResponse.isError) throw IllegalAccessError() else {
                     val format = SimpleDateFormat("dd/MM/yyy")
+                    val timeTestResponse = TimeRepository.getpet(petID.toString())
+                    text = if (!timeTestResponse.isError and (timeTestResponse.time != 0)) "Посмотреть тест" else "Пройти тестирование"
                     runOnUiThread {
+                        activity_petac_test.text = text
                         activity_petac_name.setText(petResponse.pet.first().pet_name)
                         activity_petac_status.setText(petResponse.pet.first().role)
                         activity_petac_bd.setText(format.format(petResponse.pet.first().birth_date))
@@ -89,6 +95,14 @@ class PetAccountActivity: AppCompatActivity() {
                 }
             }
         }.start()
+
+        activity_petac_test.setOnClickListener {
+            if (text == "Пройти тестирование"){
+                startActivity(Intent(this, TestingPetActivity::class.java).apply {
+                    putExtra("id", petID)
+                })
+            }
+        }
 
     }
 }

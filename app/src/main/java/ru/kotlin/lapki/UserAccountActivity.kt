@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_user.*
+import ru.kotlin.lapki.api.TestingRepository
+import ru.kotlin.lapki.api.TimeRepository
 import ru.kotlin.lapki.api.UserAccountRepository
 import java.text.SimpleDateFormat
 
@@ -57,6 +59,22 @@ class UserAccountActivity : AppCompatActivity() {
                 putExtra("mod", "users")
                 putExtra("id", userID)
             })
+        }
+        var text =""
+        Thread{
+                val timeTestResponse = TimeRepository.get(userID.toString())
+                text = if (!timeTestResponse.isError or (timeTestResponse.time != 0)) "Посмотреть тест" else "Пройти тестирование"
+            runOnUiThread {
+                activity_user_test.text = text
+            }
+        }.start()
+
+        activity_user_test.setOnClickListener {
+            if (text == "Пройти тестирование"){
+                startActivity(Intent(this, TestingActivity::class.java).apply {
+                    putExtra("id", userID)
+                })
+            }
         }
     }
 

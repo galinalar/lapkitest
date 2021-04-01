@@ -275,6 +275,11 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/activity_petac_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/get_test" />
+            <Button
                 android:id="@+id/activity_petac_result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

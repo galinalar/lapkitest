@@ -37,5 +37,32 @@ object TimeRepository {
         ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
         TestResponse::class.java
     )
+    fun getpet(id: String): TimeResponse = Gson().fromJson(
+        okHttpClient.newCall(
+            Request.Builder()
+                .url(ApiScheme.GET_PET_TIME_URL)
+                .post(
+                    FormBody.Builder().apply {
+                        add("idp", id)
+                    }.build()
+                )
+                .build()
+        ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
+        TimeResponse::class.java
+    )
+    fun setpet(id: String, time:String): TestResponse = Gson().fromJson(
+        okHttpClient.newCall(
+            Request.Builder()
+                .url(ApiScheme.SET_PET_TIME_URL)
+                .post(
+                    FormBody.Builder().apply {
+                        add("idpet", id)
+                        add("time", time)
+                    }.build()
+                )
+                .build()
+        ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
+        TestResponse::class.java
+    )
 
 }

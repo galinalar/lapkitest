@@ -76,4 +76,14 @@ object ApiScheme {
 
     const val SET_ANSWER_URL = "$SERVER_URL/?op=setanswer"
 
+    const val GET_PET_QUESTION_URL = "$SERVER_URL/?test=getpetquestion"
+
+    const val GET_PET_ANSWER_URL = "$SERVER_URL/?test=getpetanswer"
+
+    const val GET_PET_TIME_URL = "$SERVER_URL/?test=getpettime"
+
+    const val SET_PET_TIME_URL = "$SERVER_URL/?test=setpettime"
+
+    const val SET_PET_ANSWER_URL = "$SERVER_URL/?test=setpetanswer"
+
 }

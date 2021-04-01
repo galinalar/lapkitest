@@ -46,7 +46,9 @@ class MainActivity : AppCompatActivity() {
             })
         }
         pet.setOnClickListener{
-            startActivity(Intent(this, PetAccountActivity::class.java))
+            startActivity(Intent(this, PetAccountActivity::class.java).apply {
+                putExtra("id",  1)
+            })
         }
        ac.setOnClickListener{
             startActivity(Intent(this, UserAccountActivity::class.java))

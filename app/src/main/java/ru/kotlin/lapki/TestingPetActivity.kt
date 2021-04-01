@@ -4,15 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.internal.bind.TreeTypeAdapter
 import kotlinx.android.synthetic.main.activity_test.*
 import ru.kotlin.lapki.adapters.TestingCustomRecyclerAdapter
 import ru.kotlin.lapki.api.TestingRepository
 import ru.kotlin.lapki.api.TimeRepository
-import java.text.SimpleDateFormat
 
-
-class TestingActivity: AppCompatActivity() {
+class TestingPetActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,13 +17,13 @@ class TestingActivity: AppCompatActivity() {
         activity_test_question.layoutManager = LinearLayoutManager(this)
         val map = mutableMapOf<Int,MutableList<Int>>()
         val listQ = mutableListOf<Int>()
-        val userID = intent.getIntExtra("id", 0)
+        val petID = intent.getIntExtra("id", 0)
         Thread {
             try {
-                val questionResponse = TestingRepository.getquestion()
+                val questionResponse = TestingRepository.getpetquestion()
                 if (questionResponse.isError) throw IllegalAccessError() else
                 {
-                    val answerResponse = TestingRepository.getanswer()
+                    val answerResponse = TestingRepository.getpetanswer()
                     if (answerResponse.isError) throw IllegalAccessError() else {
 
                         runOnUiThread {
@@ -40,15 +37,13 @@ class TestingActivity: AppCompatActivity() {
                 runOnUiThread {
                     val err = when (exception) {
                         is IllegalAccessError -> "Неверный логин или пароль, мудила"
-                        else -> "Все наебнулосьTect"
+                        else -> "Все наебнулосьTectpet"
                     }
                 }
             }
         }.start()
 
         activity_test_save.setOnClickListener{
-            println(map)
-            println(map.values)
             val listQNA = mutableListOf<Int>()
             for(i in 0 until listQ.size){
                 if(!map.contains(listQ[i])){
@@ -56,7 +51,7 @@ class TestingActivity: AppCompatActivity() {
                 }
             }
             if (listQNA.size!=0){
-                println("Не все" + listQNA)
+                println("Не все $listQNA")
             }else{
                 println(map.values.toList())
                 val lista = mutableListOf<Int>()
@@ -69,21 +64,20 @@ class TestingActivity: AppCompatActivity() {
                         }
                     }
                 }
-                println(lista)
                 Thread{
                     try {
 
-                        val timeTestResponse = TimeRepository.get(userID.toString())
+                        val timeTestResponse = TimeRepository.getpet(petID.toString())
                         var time = if (timeTestResponse.isError or (timeTestResponse.time == 0)) 1 else timeTestResponse.time+1
-                        val testResponse = TimeRepository.set(userID.toString(), time.toString())
+                        val testResponse = TimeRepository.setpet(petID.toString(), time.toString())
                         if (testResponse.isError) throw IllegalAccessError() else {
                             (0 until lista.size).forEach { i ->
-                                val testanswResponse = TestingRepository.setanswer(lista[i].toString(), testResponse.id_test.toString())
-                            if(testanswResponse.isError) throw IllegalAccessError() else{
-                                startActivity(Intent(this, UserAccountActivity::class.java).apply {
-                                    putExtra("id", userID)
-                                })
-                            }}
+                                val testanswResponse = TestingRepository.setpetanswer(lista[i].toString(), testResponse.id_test.toString())
+                                if(testanswResponse.isError) throw IllegalAccessError() else{
+                                    startActivity(Intent(this, PetAccountActivity::class.java).apply {
+                                        putExtra("id", petID)
+                                    })
+                                }}
                         }
 
                     } catch (exception: Throwable) {
@@ -101,6 +95,4 @@ class TestingActivity: AppCompatActivity() {
         }
 
     }
-
-
 }
