@@ -7,6 +7,36 @@ android:layout_height="match_parent"
 android:background="@color/background"
 android:orientation="vertical"
 android:gravity="center"   >
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/results"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/activity_testresult_barchart"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        >
+    </com.github.mikephil.charting.charts.BarChart>
+    <Button
+        android:id="@+id/activity_testresult_return"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/return_button" />
+
     <com.jjoe64.graphview.GraphView
         android:layout_width="match_parent"
         android:layout_height="200dip"
@@ -30,4 +60,7 @@ android:gravity="center"   >
         android:textColor="@android:color/white"
         android:ellipsize="end"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -101,7 +101,9 @@ class PetAccountActivity: AppCompatActivity() {
                 startActivity(Intent(this, TestingPetActivity::class.java).apply {
                     putExtra("id", petID)
                 })
-            }
+            }else startActivity(Intent(this, TestingPetActivity::class.java).apply {
+                putExtra("id", petID)
+            })
         }
 
     }

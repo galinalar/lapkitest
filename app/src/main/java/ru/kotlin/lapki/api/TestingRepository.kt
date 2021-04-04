@@ -4,9 +4,7 @@ import com.google.gson.Gson
 import okhttp3.FormBody
 import okhttp3.Request
 import ru.kotlin.lapki.UnsafeOkHttpClient
-import ru.kotlin.lapki.api.responses.AnswerResponse
-import ru.kotlin.lapki.api.responses.ErrorResponse
-import ru.kotlin.lapki.api.responses.QuestionResponse
+import ru.kotlin.lapki.api.responses.*
 import java.lang.Error
 import java.lang.IllegalStateException
 
@@ -72,5 +70,31 @@ object TestingRepository {
                 .build()
         ).execute().body()?.string() ?: throw IllegalStateException("Pizdec"),
         ErrorResponse::class.java
+    )
+    fun getTestIDPet(id: String): TestResponse = Gson().fromJson(
+        TimeRepository.okHttpClient.newCall(
+            Request.Builder()
+                .url(ApiScheme.GET_TEST_ID_PET_URL)
+                .post(
+                    FormBody.Builder().apply {
+                        add("idpet", id)
+                    }.build()
+                )
+                .build()
+        ).execute().body()?.string() ?: throw IllegalStateException("Oшибка"),
+        TestResponse::class.java
+    )
+    fun getTestIDUser(id: String): TestResponse = Gson().fromJson(
+        TimeRepository.okHttpClient.newCall(
+            Request.Builder()
+                .url(ApiScheme.GET_TEST_ID_USER_URL)
+                .post(
+                    FormBody.Builder().apply {
+                        add("iduser", id)
+                    }.build()
+                )
+                .build()
+        ).execute().body()?.string() ?: throw IllegalStateException("Oшибка"),
+        TestResponse::class.java
     )
 }

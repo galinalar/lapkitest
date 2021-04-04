@@ -11,5 +11,9 @@
     <color name="button">#FF9200</color>
     <color name="lightb">#ffda73</color>
     <color name="dark_orange">#A63600</color>
+    <color name="green">#A67A00</color>
+    <color name="lightgreen">#FFBB00</color>
+    <color name="yellowgreen">#FF9200</color>
+    <color name="orange">#FF5300</color>
 
 </resources>

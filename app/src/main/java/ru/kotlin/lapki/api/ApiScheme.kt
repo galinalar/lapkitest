@@ -86,4 +86,18 @@ object ApiScheme {
 
     const val SET_PET_ANSWER_URL = "$SERVER_URL/?test=setpetanswer"
 
+    const val GET_USER_ANSWER_ID_URL = "$SERVER_URL/?test=getuseranswerid"
+
+    const val GET_PET_ANSWER_ID_URL = "$SERVER_URL/?test=getpetanswerid"
+
+    const val GET_VALUE_COMBINATION_URL = "$SERVER_URL/?test=getvaluecombination"
+
+    const val GET_VALUE_COMBINATION_NEG_URL = "$SERVER_URL/?test=getvaluecombinationneg"
+
+    const val GET_TEST_ID_PET_URL = "$SERVER_URL/?test=gettestidpet"
+
+    const val GET_TEST_ID_USER_URL = "$SERVER_URL/?test=gettestiduser"
+
+    const val SET_RESULT_URL = "$SERVER_URL/?test=setresult"
+
 }

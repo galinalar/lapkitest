@@ -62,10 +62,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, PetAddActivity::class.java))
         }
         test.setOnClickListener{
-            startActivity(Intent(this, TestingActivity::class.java))
+            startActivity(Intent(this, TestingActivity::class.java).apply {
+                putExtra("id",  3)
+            })
         }
         testres.setOnClickListener{
-            startActivity(Intent(this, TestResultActivity::class.java))
+            startActivity(Intent(this, TestResultActivity::class.java).apply {
+                putExtra("id_pet",  1)
+                putExtra("id_user",  3)
+            })
         }
 
     }
