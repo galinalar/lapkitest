@@ -1,8 +1,11 @@
 package ru.kotlin.lapki
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.github.mikephil.charting.components.LegendEntry
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.jjoe64.graphview.series.DataPoint
@@ -10,10 +13,12 @@ import com.jjoe64.graphview.series.LineGraphSeries
 import kotlinx.android.synthetic.main.activity_testresult.*
 import ru.kotlin.lapki.api.CombinationRepository
 import ru.kotlin.lapki.api.PetAccountRepository
+import java.time.LocalDateTime
 import kotlin.math.abs
 
 
 class TestResultActivity : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_testresult)
@@ -214,13 +219,18 @@ class TestResultActivity : AppCompatActivity() {
                     }
                     val BarSet = BarDataSet(entry, "Data")
                     val ColorAr = arrayListOf<Int>()
-                    (0 until valueList.size).forEach { i ->
+                    (0 until valueList.size-1).forEach { i ->
                         when(valueList[i]){
                             in 0.toDouble()..40.toDouble() -> ColorAr.add(ContextCompat.getColor(this, R.color.orange))
                             in 40.toDouble()..80.toDouble() -> ColorAr.add(ContextCompat.getColor(this, R.color.yellowgreen))
                             else -> ColorAr.add(ContextCompat.getColor(this, R.color.green))
                         }
                     }
+                    when(valueList[6]){
+                            in 0.toDouble()..40.toDouble() -> ColorAr.add(ContextCompat.getColor(this, R.color.green))
+                            in 40.toDouble()..80.toDouble() -> ColorAr.add(ContextCompat.getColor(this, R.color.yellowgreen))
+                            else -> ColorAr.add(ContextCompat.getColor(this, R.color.orange))
+                        }
                     runOnUiThread {
 
                         BarSet.setColors(ColorAr)
@@ -239,8 +249,20 @@ class TestResultActivity : AppCompatActivity() {
                         activity_testresult_barchart.xAxis.textColor = R.color.black
                         activity_testresult_barchart.xAxis.axisLineColor = R.color.black
                         activity_testresult_barchart.xAxis.gridColor = R.color.black
+                        activity_testresult_barchart.description.isEnabled = false
                         BarSet.valueTextSize = 10F
                         val data = BarData(BarSet)
+                        val legend = activity_testresult_barchart.legend
+                        val entries: MutableList<LegendEntry> = ArrayList()
+                        val colorList = arrayListOf(ContextCompat.getColor(this, R.color.orange),ContextCompat.getColor(this, R.color.yellowgreen),ContextCompat.getColor(this, R.color.green))
+                        val titleList = arrayListOf("Плохой результат", "Средний результат", "Хороший результат")
+                        for (i in 0 until 3) {
+                            val entry = LegendEntry()
+                            entry.formColor = colorList[i]
+                            entry.label = titleList[i]
+                            entries.add(entry)
+                        }
+                        legend.setCustom(entries)
 
                         activity_testresult_barchart.data= data
                     }
@@ -253,7 +275,8 @@ class TestResultActivity : AppCompatActivity() {
                         valueList[3].toString(),
                         valueList[4].toString(),
                         valueList[5].toString(),
-                        valueList[6].toString()
+                        valueList[6].toString(),
+                        LocalDateTime.now().toString()
                     )
                     if ( setResultsResponse.isError) throw IllegalAccessError() else {
                         println(setResultsResponse.result)

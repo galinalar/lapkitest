@@ -100,4 +100,6 @@ object ApiScheme {
 
     const val SET_RESULT_URL = "$SERVER_URL/?test=setresult"
 
+    const val GET_RESULT_PET_URL = "$SERVER_URL/?test=getresult"
+
 }

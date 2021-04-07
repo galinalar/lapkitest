@@ -67,7 +67,7 @@ object CombinationRepository {
         ).execute().body()?.string() ?: throw IllegalStateException("Ошибка"),
         ValuesResponse::class.java
     )
-    fun setResult(iduser: String, idpet: String, opt: String, train: String, fam: String, env: String, ch: String, honest: String, result: String): ResultResponse= Gson().fromJson(
+    fun setResult(iduser: String, idpet: String, opt: String, train: String, fam: String, env: String, ch: String, honest: String, result: String, date: String): ResultResponse= Gson().fromJson(
         TestingRepository.okHttpClient.newCall(
             Request.Builder()
                 .url(ApiScheme.SET_RESULT_URL)
@@ -82,6 +82,7 @@ object CombinationRepository {
                         add("ch", ch)
                         add("honest", honest)
                         add("result", result)
+                        add("date", date)
                     }.build()
                 )
                 .build()

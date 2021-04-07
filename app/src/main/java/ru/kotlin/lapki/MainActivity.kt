@@ -72,6 +72,9 @@ class MainActivity : AppCompatActivity() {
                 putExtra("id_user",  3)
             })
         }
+        stat.setOnClickListener{
+            startActivity(Intent(this, StatisticActivity::class.java))
+        }
 
     }
 }

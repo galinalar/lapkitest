@@ -25,6 +25,22 @@
     app:layout_constraintVertical_bias="0.414" >
 
 </androidx.appcompat.widget.AppCompatButton>
+<androidx.appcompat.widget.AppCompatButton
+    android:layout_width="298dp"
+    android:layout_height="wrap_content"
+    style="@style/CustomButton"
+    android:id="@+id/stat"
+    android:text="Стат"
+    android:textColor="@color/black"
+    android:textColorHint="@color/black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.471"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.414" >
+
+</androidx.appcompat.widget.AppCompatButton>
         <androidx.appcompat.widget.AppCompatButton
     android:layout_width="298dp"
     android:layout_height="wrap_content"
